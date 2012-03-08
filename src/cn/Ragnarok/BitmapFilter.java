@@ -30,6 +30,7 @@ public class BitmapFilter {
 	public static final int OLD_STYLE = 10; // 怀旧效果
 	public static final int SHARPEN_STYLE = 11; // 锐化效果
 	public static final int LIGHT_STYLE = 12; // 光照效果
+	public static final int LOMO_STYLE = 13;
 	
 	/**
 	 * 设置滤镜效果，
@@ -74,6 +75,9 @@ public class BitmapFilter {
 		}
 		else if (styleNo == LIGHT_STYLE) {
 			return LightFilter.changeToLight(bitmap);
+		}
+		else if (styleNo == LOMO_STYLE) {
+			return LomoFilter.changeToLomo(bitmap);
 		}
 			return bitmap;
 	}

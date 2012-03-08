@@ -29,9 +29,9 @@ public class LightFilter {
         int[] pixels = new int[width * height];  
         bitmap.getPixels(pixels, 0, width, 0, 0, width, height);  
         int pos = 0;  
-        for (int i = 1, length = height - 1; i < length; i++)  
-        {  
-            for (int k = 1, len = width - 1; k < len; k++)  
+        for (int i = 1, length = height - 1; i < length; i++)  // y
+        {   
+            for (int k = 1, len = width - 1; k < len; k++) // x 
             {  
                 pos = i * width + k;  
                 pixColor = pixels[pos];  
