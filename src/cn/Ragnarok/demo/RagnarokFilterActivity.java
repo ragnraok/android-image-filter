@@ -81,7 +81,7 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
         oldButton.setOnClickListener(this);
         sharpenButton.setOnClickListener(this);
         lightButton.setOnClickListener(this);
-        lomoButton.setOnClickListener(this);
+        //lomoButton.setOnClickListener(this);
         sourceButton.setOnClickListener(this);
         
         
