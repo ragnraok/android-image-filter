@@ -7,6 +7,7 @@
 
 #include "cn_Ragnarok_NativeFilterFunc.h"
 #include "LightFilter.h"
+#include "NeonFilter.h"
 #include "Util.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
@@ -29,10 +30,24 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lomoFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
+	return pixels;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_neonFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
+	jint* pixelsBuff = getPixleArray(env, pixels);
+
+	if (pixelsBuff == NULL) {
+		LOGE("in neon filter, cannot get the pixels");
+	}
+
+	LOGD("pixelsBuff[1] = %u", pixelsBuff[1]);
+	neonFilter(pixelsBuff, width, height);
+	jintArray result = jintToJintArray(env, width * height, pixelsBuff);
+	LOGD("result[1] = %u", result[1]);
+	releaseArray(env, pixels, pixelsBuff);
+
+	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_oldFilter(JNIEnv* env,

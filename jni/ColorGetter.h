@@ -17,15 +17,18 @@ public:
 	int R() { return (color & 0x00FF0000) >> 16; };
 	int G() { return (color & 0X0000FF00) >> 8; }
 	int B() { return (color & 0x000000FF); }
+	int grayScale() {
+		return (R() + G() + B()) / 3;
+	}
 private:
 	int color;
 };
 
-int ARGB2Color(int alpha, int r, int g, int b) {
+static inline int ARGB2Color(int alpha, int r, int g, int b) {
 	return alpha << 24 | r << 16 | g << 8 | b;
 }
 
-int RGB2Color(int r, int g, int b) {
+static inline int RGB2Color(int r, int g, int b) {
 	return 255 << 24 | r << 16 | g << 8 | b;
 }
 
