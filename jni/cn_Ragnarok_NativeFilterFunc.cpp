@@ -8,22 +8,12 @@
 #include "cn_Ragnarok_NativeFilterFunc.h"
 #include "LightFilter.h"
 #include "NeonFilter.h"
+#include "OilFilter.h"
 #include "Util.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
-	jint* pixelsBuff;
-	pixelsBuff = getPixleArray(env, pixels);
-
-	if (pixelsBuff == NULL) {
-		LOGE("in lightFilter, cannot get the pixels");
-	}
-
-	lightFilter(pixelsBuff, width, height);
-	jintArray result = jintToJintArray(env, width * height, pixelsBuff);
-
-	//env->ReleaseIntArrayElements(pixels, pixelsBuff, 0);
-	releaseArray(env, pixels, pixelsBuff);
+	jintArray result = procImage(env, pixels, width, height, lightFilter);
 
 	return result;
 }
@@ -35,23 +25,16 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_lomoFilter(JNIEnv* env,
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_neonFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
-	jint* pixelsBuff = getPixleArray(env, pixels);
-
-	if (pixelsBuff == NULL) {
-		LOGE("in neon filter, cannot get the pixels");
-	}
-
-	LOGD("pixelsBuff[1] = %u", pixelsBuff[1]);
-	neonFilter(pixelsBuff, width, height);
-	jintArray result = jintToJintArray(env, width * height, pixelsBuff);
-	LOGD("result[1] = %u", result[1]);
-	releaseArray(env, pixels, pixelsBuff);
+	jintArray result = procImage(env, pixels, width, height, neonFilter);
 
 	return result;
 }
 
-jintArray Java_cn_Ragnarok_NativeFilterFunc_oldFilter(JNIEnv* env,
+jintArray Java_cn_Ragnarok_NativeFilterFunc_oilFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
+	jintArray result = procImage(env, pixels, width, height, oilFilter);
+
+	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_tvFilter(JNIEnv* env, jclass object,
