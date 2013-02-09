@@ -3,7 +3,7 @@ package cn.Ragnarok;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
-public class VagueFilter {
+public class BlurFilter {
 	// 模糊效果函数
 	public static Bitmap changeToVague(Bitmap bitmap) {
 		return changeToVague(bitmap, 10);
