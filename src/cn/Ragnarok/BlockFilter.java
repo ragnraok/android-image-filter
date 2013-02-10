@@ -28,8 +28,7 @@ public class BlockFilter {
 		         returnBitmap.setPixel(i, j, Color.argb(255, iPixel, iPixel, iPixel));
 		     }
 		 }
-		    
-		   
+	   
 		 return returnBitmap;
 	}
 }

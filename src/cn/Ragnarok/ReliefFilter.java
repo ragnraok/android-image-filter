@@ -12,7 +12,11 @@ public class ReliefFilter {
 	public static Bitmap changeToRelief(Bitmap mBitmap) {        
 		 int mBitmapWidth = 0;
 		 int mBitmapHeight = 0;
+<<<<<<< HEAD
 		       
+=======
+		        
+>>>>>>> NDK
 		 mBitmapWidth = mBitmap.getWidth();
 		 mBitmapHeight = mBitmap.getHeight();
 		 
@@ -25,9 +29,9 @@ public class ReliefFilter {
 		 for (int i = 0; i < mBitmapWidth; i++) {
 		      for (int j = 0;  j < mBitmapHeight; j++) {
 		        int curr_color = mBitmap.getPixel(i,j);
-		        int r = Color.red(curr_color) - Color.red(prepreColor) +128;
-		        int g = Color.green(curr_color) - Color.red(prepreColor) +128;
-		        int b = Color.green(curr_color) - Color.blue(prepreColor) +128;
+		        int r = Color.red(curr_color) - Color.red(prepreColor) + 128;
+		        int g = Color.green(curr_color) - Color.red(prepreColor) + 128;
+		        int b = Color.green(curr_color) - Color.blue(prepreColor) + 128;
 		        int a = Color.alpha(curr_color);
 		        int modif_color  = Color.argb(a, r, g, b);
 		        bmpReturn.setPixel(i, j, modif_color);
