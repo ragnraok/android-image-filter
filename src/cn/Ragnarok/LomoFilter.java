@@ -18,7 +18,7 @@ public class LomoFilter {
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();
 		
-		Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+		Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(returnBitmap);
 		Paint paint = new Paint();
 		paint.setAntiAlias(true);

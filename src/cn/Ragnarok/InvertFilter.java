@@ -1,6 +1,7 @@
 package cn.Ragnarok;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 
 public class InvertFilter {
 	// 反色效果函数
@@ -13,24 +14,15 @@ public class InvertFilter {
 		int colorArray[] = new int[width * height];
 		int r, g, b;
 		bitmap.getPixels(colorArray, 0, width, 0, 0, width, height);
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
-				int index = y * width + x;
-				r = (colorArray[index] >> 16) & 0xff;
-				g = (colorArray[index] >> 8) & 0xff;
-				b = colorArray[index] & 0xff;
-				colorArray[index] = 0xff000000 | (r << 16) | (g << 8) | b;
-			}
-		}
 		
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				r = (255-(int)(colorArray[((y*width+x))]& 0x00FF0000) >>> 16);
-				g = (255-(int)(colorArray[((y*width+x))]& 0x0000FF00) >>> 8);
-				b = (255-(int)(colorArray[((y*width+x))] & 0x000000FF));
+				r = 255 - Color.red(colorArray[y * width + x]);
+				g = 255 - Color.green(colorArray[y * width + x]);
+				b = 255 - Color.blue(colorArray[y * width + x]);
 				
-				colorArray[((y*width+x))] = (255 << 24) + (r << 16) + (g << 8) + b;
-				returnBitmap.setPixel(x, y, colorArray[((y*width+x))]);
+				colorArray[y * width + x] = Color.rgb(r, g, b);
+				returnBitmap.setPixel(x, y, colorArray[y * width + x]);
 			}
 		}
 		
