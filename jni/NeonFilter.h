@@ -14,15 +14,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int truncate(int a) {
-	if (a < 0)
-		return 0;
-	else if (a > 255)
-		return 255;
-	else
-		return a;
-}
-
 static inline void neonFilter(int* pixels, int width, int height) {
 	int grayValue[256];
 	memset(grayValue, 0, 256 * sizeof(int));
@@ -71,7 +62,7 @@ static inline void neonFilter(int* pixels, int width, int height) {
 					index++;
 				}
 			}
-			truncate(afterGray);
+			afterGray = min(255, max(0, afterGray));
 			if (afterGray > 25) {
 				pixels[i * width + j] = RGB2Color(finalR, finalG, finalB);
 			}

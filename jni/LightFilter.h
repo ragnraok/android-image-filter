@@ -53,7 +53,6 @@ void lightFilter(int* pixels, int width, int height) {
 			pixels[pos] = ARGB2Color(255, newR, newG, newB);
 		}
 	}
-	LOGD("pixels[1] = %d",  pixels[1]);
 }
 
 

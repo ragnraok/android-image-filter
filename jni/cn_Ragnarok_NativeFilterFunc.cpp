@@ -9,6 +9,8 @@
 #include "LightFilter.h"
 #include "NeonFilter.h"
 #include "OilFilter.h"
+#include "TvFilter.h"
+#include "AverageSmooth.h"
 #include "Util.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
@@ -39,8 +41,12 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_oilFilter(JNIEnv* env,
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_tvFilter(JNIEnv* env, jclass object,
 		jintArray pixels, jint width, jint height) {
+	jintArray result = procImage(env, pixels, width, height, tvFilter);
+	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_averageSmooth(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
+	jintArray result = procImage(env, pixels, width, height, averageSmooth);
+	return result;
 }

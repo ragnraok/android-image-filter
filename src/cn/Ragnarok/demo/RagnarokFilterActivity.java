@@ -66,7 +66,7 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
         oldButton = (Button) findViewById(R.id.button_change_to_old);
         sharpenButton = (Button) findViewById(R.id.button_change_to_sharpen);
         lightButton = (Button) findViewById(R.id.button_change_to_light);
-        //lomoButton = (Button) findViewById(R.id.button_change_to_lomo);
+        lomoButton = (Button) findViewById(R.id.button_change_to_lomo);
         sourceButton = (Button) findViewById(R.id.button_change_to_source);
         
         grayButton.setOnClickListener(this);
@@ -81,7 +81,7 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
         oldButton.setOnClickListener(this);
         sharpenButton.setOnClickListener(this);
         lightButton.setOnClickListener(this);
-        //lomoButton.setOnClickListener(this);
+        lomoButton.setOnClickListener(this);
         sourceButton.setOnClickListener(this);
         
         
@@ -100,7 +100,7 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
 			styleId = BitmapFilter.OIL_STYLE;
 			break;
 		case R.id.button_change_to_relief:
-			styleId = BitmapFilter.OIL_STYLE;
+			styleId = BitmapFilter.RELIEF_STYLE;
 			break;
 		case R.id.button_change_to_vague:
 			styleId = BitmapFilter.BLUR_STYLE;
@@ -129,9 +129,9 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
 		case R.id.button_change_to_light:
 			styleId = BitmapFilter.LIGHT_STYLE;
 			break;
-		//case R.id.button_change_to_lomo:
-		//	styleId = BitmapFilter.LOMO_STYLE;
-		//	break;
+		case R.id.button_change_to_lomo:
+			styleId = BitmapFilter.LOMO_STYLE;
+			break;
 		case R.id.button_change_to_source:
 			imageView.setImageBitmap(sourceBitmap);
 			break;
