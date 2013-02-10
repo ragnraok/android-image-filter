@@ -1,119 +1,59 @@
 package cn.Ragnarok;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 
 public class PixelateFilter {
-	private static int pixelSize = 16;
+	private static int pixelSize = 4;
 	private static int colorArray[];
 	private static int width;
 	private static int height;
 	
 	// 像素化效果函数
 	public static final Bitmap changeToPixelate(Bitmap bitmap) {
-		int l_rgb;
+		int color;
 		width = bitmap.getWidth();
 		height = bitmap.getHeight();
 		
 		Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
 		
 		colorArray = new int[width * height];
-		int r, g, b;
 		bitmap.getPixels(colorArray, 0, width, 0, 0, width, height);
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
-				int index = y * width + x;
-				r = (colorArray[index] >> 16) & 0xff;
-				g = (colorArray[index] >> 8) & 0xff;
-				b = colorArray[index] & 0xff;
-				colorArray[index] = 0xff000000 | (r << 16) | (g << 8) | b;
-			}
-		}
 		
-		for (int x = 0; x < width; x+= pixelSize) {
-			for (int y = 0; y < bitmap.getHeight(); y+=pixelSize) {				
-				l_rgb = getPredominantRGB(bitmap, x,y,pixelSize);
-				fillRect(returnBitmap, x,y,pixelSize, l_rgb);					
+		for (int x = 0; x < width; x += pixelSize) {
+			for (int y = 0; y < height; y +=pixelSize) {				
+				color = getPredominantRGB(bitmap, x,y,pixelSize);
+				fillRect(returnBitmap, x,y, pixelSize, color);					
 			}
 		}
 		
 		return returnBitmap;
 	}
 	
-	/**
-	 * @return the pixelSize
-	 */
-	public int getPixelSize() {
-		return pixelSize;
-	}
-
-
-
-	/**
-	 * @param pixelSize the pixelSize to set
-	 */
-	public void setPixelSize(int pixelSize) {
-		this.pixelSize = pixelSize;
-	}
-
-
-
-	/**
-	 * Method gets the predominant colour pixels to extrapolate
-	 * the pixelation from
-	 * 
-	 * @param imageIn
-	 * @param a_x
-	 * @param a_y
-	 * @param squareSize
-	 * @return
-	 */
-	private static int getPredominantRGB(Bitmap imageIn, int a_x, int a_y, int squareSize){
-		int red=-1;
-		int green=-1;
-		int blue=-1;
+	private static int getPredominantRGB(Bitmap bitmap, int col, int row, int squareSize){
+		int red = 0;
+		int green = 0;
+		int blue = 0;
 		
-		for(int x=a_x; x<a_x+squareSize; x++){
-			for(int y=a_y; y<a_y+squareSize; y++){
-				if(x < imageIn.getWidth() && y < imageIn.getHeight()){
-					
-					if(red == -1){
-						red = (colorArray[((y*width+x))]& 0x00FF0000) >>> 16;
-					}
-					else{
-						red = ((colorArray[((y*width+x))]& 0x00FF0000) >>> 16)/2;
-					}
-					if(green == -1){
-						green = (colorArray[((y*width+x))]& 0x0000FF00) >>> 8;
-					}
-					else{
-						green = ((colorArray[((y*width+x))]& 0x0000FF00) >>> 8)/2;
-					}
-					if(blue == -1){
-						blue = (colorArray[((y*width+x))] & 0x000000FF);
-					}
-					else{
-						blue = ((colorArray[((y*width+x))] & 0x000000FF))/2;	
-					}
+		for(int x= col; x < col + squareSize; x++){
+			for(int y = row; y < row + squareSize; y++){
+				if(x < bitmap.getWidth() && y < bitmap.getHeight()) {	
+					red += Color.red(colorArray[y * width + x]);
+					green += Color.green(colorArray[y * width + x]);
+					blue += Color.blue(colorArray[y * width + x]);
 				}				
 			} 
 		}
-		return (255<<24)+(red<<16)+(green<<8)+blue;
+		int val = (int) Math.pow(squareSize, 2);
+		return Color.rgb(red / val, green / val, blue / val);
 	}
 	
-	/**
-	 * Method to extrapolate out
-	 * 
-	 * @param imageIn
-	 * @param a_x
-	 * @param a_y
-	 * @param squareSize
-	 * @param a_rgb
-	 */
-	private static void fillRect(Bitmap imageIn, int a_x, int a_y, int squareSize, int a_rgb){
-		for(int x=a_x; x<a_x+squareSize; x++){
-			for(int y=a_y; y<a_y+squareSize; y++){
-				if(x < imageIn.getWidth() && y < imageIn.getHeight()){
-					imageIn.setPixel(x,y,a_rgb);
+
+	private static void fillRect(Bitmap bitmap, int col, int row, int squareSize, int color){
+		for(int x = col; x < col + squareSize; x++){
+			for(int y = row; y < row + squareSize; y++){
+				if(x < bitmap.getWidth() && y < bitmap.getHeight()){
+					bitmap.setPixel(x, y, color);
 				}
 			}
 		}					
