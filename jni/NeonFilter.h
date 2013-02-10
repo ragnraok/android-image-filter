@@ -44,26 +44,35 @@ static inline void neonFilter(int* pixels, int width, int height) {
 	int* tempPixel = new int[width * height];
 	memcpy(tempPixel, pixels, width * height * sizeof(int));
 
-	int laplacian[] = {  -1, -1, -1, -1, 8, -1, -1, -1, -1 };
-	// use laplacian to extract the edges
+	int xSobel[] = {1, 2, 1, 0, 0, 0, -1, -2, -1};
+	int ySobel[] = {1, 0, -1, 2, 0, -2, 1, 0, -1};
+
 	int index = 0;
 	int originGray = 0;
 	int afterGray = 0;
+
+	int xVal = 0;
+	int yVal = 0;
+	float threshold = 110;
 
 	for (int i = 1; i < height - 1; i++) {
 		for (int j = 1; j < width - 1; j++) {
 			index = 0;
 			afterGray = 0;
+			xVal = yVal = 0;
 			for (int m = -1; m <= 1; m++) {
 				for (int n = -1; n <= 1; n++) {
 					Color pixColor = Color(tempPixel[(i + m) * width + j + n]);
 					originGray = pixColor.grayScale();
-					afterGray += originGray * laplacian[index] * 0.6;
+
+					xVal += originGray * xSobel[index];
+					yVal += originGray * ySobel[index];
 					index++;
 				}
 			}
+			afterGray = abs(xVal) + abs(yVal);
 			afterGray = min(255, max(0, afterGray));
-			if (afterGray > 25) {
+			if (afterGray > threshold) {
 				pixels[i * width + j] = RGB2Color(finalR, finalG, finalB);
 			}
 			else
