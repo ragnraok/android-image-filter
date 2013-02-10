@@ -9,27 +9,17 @@ import android.graphics.Paint;
 
 public class ReliefFilter {
 	// 浮雕效果函数
-	public static Bitmap changeToRelief(Bitmap mBitmap) {
-		 Paint mPaint;
-	         
+	public static Bitmap changeToRelief(Bitmap mBitmap) {        
 		 int mBitmapWidth = 0;
 		 int mBitmapHeight = 0;
-		         
-		 int mArrayColor[] = null;
-		 int mArrayColorLengh = 0;
-		 long startTime = 0;
-		 int mBackVolume = 0;
-		        
+		       
 		 mBitmapWidth = mBitmap.getWidth();
 		 mBitmapHeight = mBitmap.getHeight();
 		 
-		 Bitmap bmpReturn = Bitmap.createBitmap(mBitmapWidth, mBitmapHeight, Bitmap.Config.RGB_565); 
-		 mArrayColorLengh = mBitmapWidth * mBitmapHeight;   
+		 Bitmap bmpReturn = Bitmap.createBitmap(mBitmapWidth, mBitmapHeight, Bitmap.Config.ARGB_8888); 
 
-		 int count = 0;
 		 int  preColor = 0;
 		 int  prepreColor = 0;
-		 int color = 0;
 		 preColor = mBitmap.getPixel(0,0);
 		        
 		 for (int i = 0; i < mBitmapWidth; i++) {
