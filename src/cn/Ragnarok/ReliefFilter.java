@@ -12,11 +12,7 @@ public class ReliefFilter {
 	public static Bitmap changeToRelief(Bitmap mBitmap) {        
 		 int mBitmapWidth = 0;
 		 int mBitmapHeight = 0;
-<<<<<<< HEAD
-		       
-=======
-		        
->>>>>>> NDK
+
 		 mBitmapWidth = mBitmap.getWidth();
 		 mBitmapHeight = mBitmap.getHeight();
 		 
