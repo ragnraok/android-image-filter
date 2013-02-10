@@ -51,3 +51,7 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_averageSmooth(JNIEnv* env,
 	jintArray result = procImage(env, pixels, width, height, averageSmooth);
 	return result;
 }
+
+jintArray Java_cn_Ragnarok_NativeFilterFunc_hdrFilter(JNIEnv*, jclass,
+		jintArray, jint int1, jint int2) {
+}

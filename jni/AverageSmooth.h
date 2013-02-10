@@ -32,6 +32,8 @@ void averageSmooth(int* pixels, int width, int height) {
 			pixels[row * width + col] = RGB2Color(sumR / 9, sumG / 9, sumB / 9);
 		}
 	}
+
+	delete [] tempPixels;
 }
 
 

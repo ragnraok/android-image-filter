@@ -38,9 +38,9 @@ void lomoAddBlackRound(int* pixels, int width, int height) {
 
 				scaler = abs(scaler);
 
-				int newR = (int) (pixR - scaler);
-				int newG = (int) (pixG - scaler);
-				int newB = (int) (pixB - scaler);
+				int newR = pixR - scaler;
+				int newG = pixG - scaler;
+				int newB = pixB - scaler;
 
 				newR = min(255, max(0, newR));
 				newG = min(255, max(0, newG));
