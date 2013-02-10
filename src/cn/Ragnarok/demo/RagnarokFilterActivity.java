@@ -100,10 +100,10 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
 			styleId = BitmapFilter.OIL_STYLE;
 			break;
 		case R.id.button_change_to_relief:
-			styleId = BitmapFilter.OIL_STYLE;
+			styleId = BitmapFilter.RELIEF_STYLE;
 			break;
 		case R.id.button_change_to_vague:
-			styleId = BitmapFilter.VAGUE_STYLE;
+			styleId = BitmapFilter.BLUR_STYLE;
 			break;
 		case R.id.button_change_to_neon:
 			styleId = BitmapFilter.NEON_STYLE;

@@ -20,7 +20,7 @@ public class BitmapFilter {
 	 */
 	public static final int GRAY_STYLE = 1; // 黑白效果
 	public static final int RELIEF_STYLE = 2; // 浮雕效果
-	public static final int VAGUE_STYLE = 3; // 模糊效果
+	public static final int BLUR_STYLE = 3; // 模糊效果
 	public static final int OIL_STYLE = 4; // 油画效果
 	public static final int NEON_STYLE = 5; // 霓虹灯效果
 	public static final int PIXELATE_STYLE = 6; // 像素化效果
@@ -45,8 +45,8 @@ public class BitmapFilter {
 		else if (styleNo == RELIEF_STYLE) {
 			return ReliefFilter.changeToRelief(bitmap);
 		}
-		else if (styleNo == VAGUE_STYLE) {
-			return VagueFilter.changeToVague(bitmap);
+		else if (styleNo == BLUR_STYLE) {
+			return BlurFilter.changeToVague(bitmap);
 		}
 		else if (styleNo == OIL_STYLE) {
 			return OilFilter.changeToOil(bitmap);
