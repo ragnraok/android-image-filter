@@ -94,53 +94,37 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		styleId = 0;
-		switch (v.getId())
-		{
-		case R.id.button_change_to_gray:
+		int id = v.getId();
+		if (id == R.id.button_change_to_gray) {
 			styleId = BitmapFilter.GRAY_STYLE;
-			break;
-		case R.id.button_change_to_oid:
+		} else if (id == R.id.button_change_to_oid) {
 			styleId = BitmapFilter.OIL_STYLE;
-			break;
-		case R.id.button_change_to_relief:
+		} else if (id == R.id.button_change_to_relief) {
 			styleId = BitmapFilter.RELIEF_STYLE;
-			break;
-		case R.id.button_change_to_vague:
+		} else if (id == R.id.button_change_to_vague) {
 			styleId = BitmapFilter.BLUR_STYLE;
-			break;
-		case R.id.button_change_to_neon:
+		} else if (id == R.id.button_change_to_neon) {
 			styleId = BitmapFilter.NEON_STYLE;
-			break;
-		case R.id.button_change_to_pixelate:
+		} else if (id == R.id.button_change_to_pixelate) {
 			styleId = BitmapFilter.PIXELATE_STYLE;
-			break;
-		case R.id.button_change_to_invert:
+		} else if (id == R.id.button_change_to_invert) {
 			styleId = BitmapFilter.INVERT_STYLE;
-			break;
-		case R.id.button_change_to_tv:
+		} else if (id == R.id.button_change_to_tv) {
 			styleId = BitmapFilter.TV_STYLE;
-			break;
-		case R.id.button_change_to_block:;
+		} else if (id == R.id.button_change_to_block) {
 			styleId = BitmapFilter.BLOCK_STYLE;
-			break;
-		case R.id.button_change_to_old:
+		} else if (id == R.id.button_change_to_old) {
 			styleId = BitmapFilter.OLD_STYLE;
-			break;
-		case R.id.button_change_to_sharpen:
+		} else if (id == R.id.button_change_to_sharpen) {
 			styleId = BitmapFilter.SHARPEN_STYLE;
-			break;
-		case R.id.button_change_to_light:
+		} else if (id == R.id.button_change_to_light) {
 			styleId = BitmapFilter.LIGHT_STYLE;
-			break;
-		case R.id.button_change_to_lomo:
+		} else if (id == R.id.button_change_to_lomo) {
 			styleId = BitmapFilter.LOMO_STYLE;
-			break;
-		case R.id.button_change_to_hdr:
+		} else if (id == R.id.button_change_to_hdr) {
 			styleId = BitmapFilter.HDR_STYLE;
-			break;
-		case R.id.button_change_to_source:
+		} else if (id == R.id.button_change_to_source) {
 			imageView.setImageBitmap(sourceBitmap);
-			break;
 		}
 		
 		progressDialog = ProgressDialog.show(this, "请稍后", "正在处理中...");

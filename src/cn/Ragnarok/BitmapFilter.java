@@ -33,6 +33,8 @@ public class BitmapFilter {
 	public static final int LOMO_STYLE = 13;
 	public static final int HDR_STYLE = 14;
 	
+	public static final int TOTAL_FILTER_NUM = 14;
+	
 	/**
 	 * 设置滤镜效果，
 	 * @param bitmap
