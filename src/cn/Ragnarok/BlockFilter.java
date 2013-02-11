@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class BlockFilter {
-	// 版画效果函数
 	public static Bitmap changeToBrick(Bitmap mBitmap) {		     
 		 int width = mBitmap.getWidth();
 		 int height = mBitmap.getHeight();

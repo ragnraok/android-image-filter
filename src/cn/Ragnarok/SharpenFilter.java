@@ -8,9 +8,9 @@ import android.graphics.ColorMatrix;
 
 public class SharpenFilter {
 	
-	// 锐化效果函数
+
 	public static Bitmap changeToSharpen(Bitmap bitmap) {
-		// 拉普拉斯算子 
+
 		int laplacian[] = {  0, -1, 0, -1, 4, -1, 0, -1, 0 };  
           
         int width = bitmap.getWidth();  

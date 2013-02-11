@@ -7,7 +7,6 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 
 public class GrayFilter {
-	// 黑白效果函数
 	public static Bitmap changeToGray(Bitmap bitmap) {
 		int width, height;
 		width = bitmap.getWidth();

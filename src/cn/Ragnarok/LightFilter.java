@@ -9,7 +9,6 @@ public class LightFilter {
 		System.loadLibrary("AndroidImageFilter");
 	}
 	
-	// 光照效果函数
 	public static Bitmap changeToLight(Bitmap bitmap) {
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();

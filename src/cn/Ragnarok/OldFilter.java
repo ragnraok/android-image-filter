@@ -5,7 +5,6 @@ import android.graphics.Color;
 
 public class OldFilter {
 	
-	// 怀旧效果函数
 	public static Bitmap changeToOld(Bitmap bitmap) {
 		
         int width = bitmap.getWidth();  

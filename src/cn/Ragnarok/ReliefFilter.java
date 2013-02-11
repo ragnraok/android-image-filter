@@ -8,7 +8,6 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 
 public class ReliefFilter {
-	// 浮雕效果函数
 	public static Bitmap changeToRelief(Bitmap mBitmap) {        
 		 int mBitmapWidth = 0;
 		 int mBitmapHeight = 0;

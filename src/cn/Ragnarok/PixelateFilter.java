@@ -9,7 +9,6 @@ public class PixelateFilter {
 	private static int width;
 	private static int height;
 	
-	// 像素化效果函数
 	public static final Bitmap changeToPixelate(Bitmap bitmap) {
 		int color;
 		width = bitmap.getWidth();
