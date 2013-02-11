@@ -35,6 +35,7 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
 	Button sharpenButton;
 	Button lightButton;
 	Button lomoButton;
+	Button hdrButton;
 	Button sourceButton;
 	
 	Bitmap sourceBitmap;
@@ -67,6 +68,7 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
         sharpenButton = (Button) findViewById(R.id.button_change_to_sharpen);
         lightButton = (Button) findViewById(R.id.button_change_to_light);
         lomoButton = (Button) findViewById(R.id.button_change_to_lomo);
+        hdrButton = (Button) findViewById(R.id.button_change_to_hdr);
         sourceButton = (Button) findViewById(R.id.button_change_to_source);
         
         grayButton.setOnClickListener(this);
@@ -82,6 +84,7 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
         sharpenButton.setOnClickListener(this);
         lightButton.setOnClickListener(this);
         lomoButton.setOnClickListener(this);
+        hdrButton.setOnClickListener(this);
         sourceButton.setOnClickListener(this);
         
         
@@ -131,6 +134,9 @@ public class RagnarokFilterActivity extends Activity implements OnClickListener 
 			break;
 		case R.id.button_change_to_lomo:
 			styleId = BitmapFilter.LOMO_STYLE;
+			break;
+		case R.id.button_change_to_hdr:
+			styleId = BitmapFilter.HDR_STYLE;
 			break;
 		case R.id.button_change_to_source:
 			imageView.setImageBitmap(sourceBitmap);

@@ -31,6 +31,7 @@ public class BitmapFilter {
 	public static final int SHARPEN_STYLE = 11; // 锐化效果
 	public static final int LIGHT_STYLE = 12; // 光照效果
 	public static final int LOMO_STYLE = 13;
+	public static final int HDR_STYLE = 14;
 	
 	/**
 	 * 设置滤镜效果，
@@ -79,7 +80,10 @@ public class BitmapFilter {
 		else if (styleNo == LOMO_STYLE) {
 			return LomoFilter.changeToLomo(bitmap);
 		}
-			return bitmap;
+		else if (styleNo == HDR_STYLE) {
+			return HDRFilter.changeToHDR(bitmap);
+		}
+		return bitmap;
 	}
 	
 	

@@ -12,6 +12,7 @@
 #include "TvFilter.h"
 #include "AverageSmooth.h"
 #include "LomoAddBlackRound.h"
+#include "HDRFilter.h"
 #include "Util.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
@@ -52,6 +53,8 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_averageSmooth(JNIEnv* env,
 	return result;
 }
 
-jintArray Java_cn_Ragnarok_NativeFilterFunc_hdrFilter(JNIEnv*, jclass,
-		jintArray, jint int1, jint int2) {
+jintArray Java_cn_Ragnarok_NativeFilterFunc_hdrFilter(JNIEnv* env, jclass object,
+		jintArray pixels, jint width, jint height) {
+	jintArray result = procImage(env, pixels, width, height, hdrFilter);
+	return result;
 }
