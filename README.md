@@ -25,5 +25,7 @@ it is very simple, right? And you can see all filters in file /src/cn/Ragnarok/B
 
 - Also, you can download the demo app from this [link][1]
 
-[1]: http://s.yunio.com/lYlEKr
+ ![][2]
 
+[1]: http://s.yunio.com/lYlEKr
+[2]: http://i46.tinypic.com/263hff8.jpg
