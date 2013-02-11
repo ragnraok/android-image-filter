@@ -9,7 +9,7 @@ in some filter, I use NDK to implement it
 
 - Get a clean clone of this project, import the library in Ecliplse, click Project->Clean, then click Project->Build Project
 to regenerate the library
-- Then just add AndroidImageFilter as a dependency to your existing project, following this guild:
+- Then just add AndroidImageFilter as a dependency to your existing project.
 
 # How to Use it
 
