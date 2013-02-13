@@ -8,4 +8,5 @@ public class NativeFilterFunc {
 	public static native int[] tvFilter(int[] pixels, int width, int height);
 	public static native int[] averageSmooth(int[] pixels, int width, int height);
 	public static native int[] hdrFilter(int[] pixels, int width, int height);
+	public static native int[] discreteGaussianBlur(int[] pixels, int width, int height);
 }

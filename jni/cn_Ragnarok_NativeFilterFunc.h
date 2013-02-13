@@ -63,6 +63,14 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_averageSmooth
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_hdrFilter
   (JNIEnv *, jclass, jintArray, jint, jint);
 
+/*
+ * Class:     cn_Ragnarok_NativeFilterFunc
+ * Method:    hdrFilter
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur
+  (JNIEnv *, jclass, jintArray, jint, jint);
+
 #ifdef __cplusplus
 }
 #endif

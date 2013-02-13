@@ -32,8 +32,9 @@ public class BitmapFilter {
 	public static final int LIGHT_STYLE = 12; // light
 	public static final int LOMO_STYLE = 13; // lomo
 	public static final int HDR_STYLE = 14; // HDR
+	public static final int GAUSSIAN_BLUR_STYLE = 15; // gaussian blur
 	
-	public static final int TOTAL_FILTER_NUM = 14;
+	public static final int TOTAL_FILTER_NUM = 15;
 	
 	/**
 	 * 设置滤镜效果，
@@ -59,8 +60,7 @@ public class BitmapFilter {
 		}
 		else if (styleNo == PIXELATE_STYLE) {
 			return PixelateFilter.changeToPixelate(bitmap);
-		}
-			
+		}			
 		else if (styleNo == TV_STYLE) {
 			return TvFilter.changeToTV(bitmap);
 		}
@@ -84,6 +84,9 @@ public class BitmapFilter {
 		}
 		else if (styleNo == HDR_STYLE) {
 			return HDRFilter.changeToHDR(bitmap);
+		}
+		else if (styleNo == GAUSSIAN_BLUR_STYLE) {
+			return GaussianBlurFilter.changeToGaussianBlur(bitmap);
 		}
 		return bitmap;
 	}
