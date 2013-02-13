@@ -1,4 +1,5 @@
 /*
+
  * cn_Ragnarok_NativeFilterFunc.cpp
  *
  *  Created on: 2013-2-9
@@ -14,6 +15,7 @@
 #include "LomoAddBlackRound.h"
 #include "HDRFilter.h"
 #include "DiscreteGaussianBlur.h"
+#include "SoftGlowFilter.h"
 #include "Util.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
@@ -63,5 +65,11 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_hdrFilter(JNIEnv* env, jclass object
 jintArray Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
 	jintArray result = procImage(env, pixels, width, height, discreteGaussianBlur);
+	return result;
+}
+
+jintArray Java_cn_Ragnarok_NativeFilterFunc_softGlow(JNIEnv* env, jclass object,
+		jintArray pixels, jint width, jint height) {
+	jintArray result = procImage(env, pixels, width, height, softGlowFilter);
 	return result;
 }

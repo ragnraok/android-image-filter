@@ -9,13 +9,13 @@
 #define HDRFILTER_H_
 
 #include "Util.h"
-#include "AverageSmooth.h"
+#include "DiscreteGaussianBlur.h"
 
 void hdrFilter(int* pixels, int width, int height) {
 	int* smoothPixels = new int[width * height];
 	memcpy(smoothPixels, pixels, width * height * sizeof(int));
 
-	averageSmooth(smoothPixels, width, height);
+	discreteGaussianBlur(smoothPixels, width, height);
 
 	double newR = 0, newG = 0, newB = 0;
 	for (int row = 0; row < height; row++) {

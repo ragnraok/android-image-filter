@@ -2,6 +2,7 @@ package cn.Ragnarok;
 
 import java.util.Random;
 
+import android.R.style;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -33,11 +34,12 @@ public class BitmapFilter {
 	public static final int LOMO_STYLE = 13; // lomo
 	public static final int HDR_STYLE = 14; // HDR
 	public static final int GAUSSIAN_BLUR_STYLE = 15; // gaussian blur
+	public static final int SOFT_GLOW_STYLE = 16;
 	
-	public static final int TOTAL_FILTER_NUM = 15;
+	public static final int TOTAL_FILTER_NUM = 16;
 	
 	/**
-	 * 设置滤镜效果，
+	 * change bitmap filter style
 	 * @param bitmap
 	 * @param styeNo, 效果id
 	 */
@@ -87,6 +89,9 @@ public class BitmapFilter {
 		}
 		else if (styleNo == GAUSSIAN_BLUR_STYLE) {
 			return GaussianBlurFilter.changeToGaussianBlur(bitmap);
+		}
+		else if (styleNo == SOFT_GLOW_STYLE) {
+			return SoftGlowFilter.softGlowFilter(bitmap);
 		}
 		return bitmap;
 	}

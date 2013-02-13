@@ -13,7 +13,7 @@ public:
 	Color(int color):
 		color(color)
 		{};
-	int alpha() { return 0XFF << 24; }
+	int alpha() { return (color & 0xFF000000) >> 24; }
 	int R() { return (color & 0x00FF0000) >> 16; };
 	int G() { return (color & 0X0000FF00) >> 8; }
 	int B() { return (color & 0x000000FF); }

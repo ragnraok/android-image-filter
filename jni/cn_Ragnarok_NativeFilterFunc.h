@@ -65,10 +65,18 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_hdrFilter
 
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
- * Method:    hdrFilter
+ * Method:    discreteGaussianBlur
  * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur
+  (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     cn_Ragnarok_NativeFilterFunc
+ * Method:    softGlow
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_softGlow
   (JNIEnv *, jclass, jintArray, jint, jint);
 
 #ifdef __cplusplus

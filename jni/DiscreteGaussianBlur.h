@@ -15,30 +15,34 @@ void discreteGaussianBlur(int* pixels, int width, int height) {
 	int* tempPixels = new int[width * height];
 	memcpy(tempPixels, pixels, width * height * sizeof(int));
 
-	// 3 x 3 gaussian mask
-	int mask[] = {1, 2, 1, 2, 4, 2, 1, 2, 1};
+	// 5 x 5 gaussian mask
+	int mask[] = {1, 4, 7, 4, 1, 4, 16, 26, 16, 4, 7, 26, 41, 26, 7, 4, 16, 26, 16, 4, 1, 4, 7, 4, 1};
+	int val = 273.0;
 	int index = 0;
+	double sumA = 0;
 	double sumR = 0;
 	double sumG = 0;
 	double sumB = 0;
-	for (int row = 1; row < height - 1; row++) {
-		for (int col = 1; col < width - 1; col++) {
+	for (int row = 2; row < height - 2; row++) {
+		for (int col = 2; col < width - 2; col++) {
 			index = 0;
 			sumR = sumG = sumB = 0;
-			for (int i = -1; i <= 1; i++) {
-				for (int j = -1; j <= 1; j++) {
+			for (int i = -2; i <= 2; i++) {
+				for (int j = -2; j <= 2; j++) {
 					Color color(tempPixels[(row + i) * width + col + j]);
+					sumA += color.alpha() * mask[index];
 					sumR += color.R() * mask[index];
 					sumG += color.G() * mask[index];
 					sumB += color.B() * mask[index];
 					index++;
 				}
 			}
-			sumR = min(255, max(0, sumR / 16.0));
-			sumG = min(255, max(0, sumG / 16.0));
-			sumB = min(255, max(0, sumB / 16.0));
+			sumA = min(255, max(0, sumA / val));
+			sumR = min(255, max(0, sumR / val));
+			sumG = min(255, max(0, sumG / val));
+			sumB = min(255, max(0, sumB / val));
 
-			pixels[row * width + col] = RGB2Color(sumR, sumG, sumB);
+			pixels[row * width + col] = ARGB2Color(sumA, sumR, sumG, sumB);
 		}
 	}
 
