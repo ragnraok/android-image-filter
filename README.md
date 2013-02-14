@@ -20,7 +20,7 @@ to regenerate the library
   imageView.setImageBitmap(newBitmap);
 ```
 
-it is very simple, right? And you can see all filters in file /src/cn/Ragnarok/BitmapFilter.java, it contains totally
+it is very simple, right? And you can see all filters in file [/src/cn/Ragnarok/BitmapFilter.java][3], it contains totally
 16 kinds of filters now!
 
 - Also, you can download the demo app from this [link][1]
@@ -29,3 +29,4 @@ it is very simple, right? And you can see all filters in file /src/cn/Ragnarok/B
 
 [1]: http://s.yunio.com/lYlEKr
 [2]: http://i46.tinypic.com/263hff8.jpg
+[3]: https://github.com/ragnraok/android-image-filter/blob/master/src/cn/Ragnarok/BitmapFilter.java
