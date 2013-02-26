@@ -1,7 +1,7 @@
 android-image-filter
 ====================
 
-some android image filter example
+some android image filters
 
 in some filter, I use NDK to implement it
 
