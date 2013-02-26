@@ -18,11 +18,12 @@ void hdrFilter(int* pixels, int width, int height) {
 	discreteGaussianBlur(smoothPixels, width, height);
 
 	double newR = 0, newG = 0, newB = 0;
+	double blurA = 0;
 	for (int row = 0; row < height; row++) {
 		for (int col = 0; col < width; col++) {
 			Color originColor(pixels[row * width + col]);
 			Color smoothColor(smoothPixels[row * width + col]);
-			newR = newG = newB = 0;
+			newR = newG = newB = blurA = 0;
 			if (smoothColor.R() / 255.0 <= 0.5)
 				newR = 2 * (smoothColor.R() / 255.0) * (originColor.R() / 255.0);
 			else
@@ -38,7 +39,9 @@ void hdrFilter(int* pixels, int width, int height) {
 			else
 				newB = 1 - 2 * (1 - originColor.B() / 255.0) * (1 - smoothColor.B() / 255.0);
 
-			pixels[row * width + col] = RGB2Color(newR * 255, newG * 255, newB * 255);
+			blurA = smoothColor.alpha();
+
+			pixels[row * width + col] = ARGB2Color(blurA, newR * 255, newG * 255, newB * 255);
 		}
 	}
 }
