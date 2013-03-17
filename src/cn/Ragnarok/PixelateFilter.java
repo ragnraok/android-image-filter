@@ -14,7 +14,7 @@ public class PixelateFilter {
 		width = bitmap.getWidth();
 		height = bitmap.getHeight();
 		
-		Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+		Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		
 		colorArray = new int[width * height];
 		bitmap.getPixels(colorArray, 0, width, 0, 0, width, height);

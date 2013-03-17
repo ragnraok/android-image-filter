@@ -16,6 +16,7 @@
 #include "HDRFilter.h"
 #include "DiscreteGaussianBlur.h"
 #include "SoftGlowFilter.h"
+#include "SketchFilter.h"
 #include "Util.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
@@ -71,5 +72,11 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur(JNIEnv* env,
 jintArray Java_cn_Ragnarok_NativeFilterFunc_softGlow(JNIEnv* env, jclass object,
 		jintArray pixels, jint width, jint height) {
 	jintArray result = procImage(env, pixels, width, height, softGlowFilter);
+	return result;
+}
+
+jintArray Java_cn_Ragnarok_NativeFilterFunc_sketchFilter(JNIEnv* env, jclass object,
+		jintArray pixels, jint width, jint height) {
+	jintArray result = procImage(env, pixels, width, height, sketchFilter);
 	return result;
 }

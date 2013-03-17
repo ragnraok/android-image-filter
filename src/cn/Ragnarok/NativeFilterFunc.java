@@ -10,4 +10,5 @@ public class NativeFilterFunc {
 	public static native int[] hdrFilter(int[] pixels, int width, int height);
 	public static native int[] discreteGaussianBlur(int[] pixels, int width, int height);
 	public static native int[] softGlow(int[] pixels, int width, int height);
+	public static native int[] sketchFilter(int[] pixels, int width, int height);
 }

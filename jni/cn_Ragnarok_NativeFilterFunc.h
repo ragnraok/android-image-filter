@@ -79,6 +79,14 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBl
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_softGlow
   (JNIEnv *, jclass, jintArray, jint, jint);
 
+/*
+ * Class:     cn_Ragnarok_NativeFilterFunc
+ * Method:    sketchFilter
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_sketchFilter
+  (JNIEnv *, jclass, jintArray, jint, jint);
+
 #ifdef __cplusplus
 }
 #endif

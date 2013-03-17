@@ -12,6 +12,8 @@
 #include <jni.h>
 #include <cstddef>
 
+#include "ColorGetter.h"
+
 #define		LOG_TAG    "AndroidImageFilter"
 #define		LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define		LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
@@ -62,6 +64,14 @@ static inline jintArray procImage(JNIEnv* env, jintArray pixels, jint width, jin
 	releaseArray(env, pixels, pixelsBuff);
 
 	return result;
+}
+
+static inline void changeImageToGray(int* pixels, int width, int height) {
+	for (int i = 0; i < width * height; i++) {
+		Color color(pixels[i]);
+		float gray = color.R() * 0.3 + color.G() * 0.59 + color.B() * 0.11;
+		pixels[i] = RGB2Color(gray, gray, gray);
+	}
 }
 
 #endif /* UTIL_H_ */

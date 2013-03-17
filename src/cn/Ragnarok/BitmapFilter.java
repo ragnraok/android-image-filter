@@ -34,9 +34,11 @@ public class BitmapFilter {
 	public static final int LOMO_STYLE = 13; // lomo
 	public static final int HDR_STYLE = 14; // HDR
 	public static final int GAUSSIAN_BLUR_STYLE = 15; // gaussian blur
-	public static final int SOFT_GLOW_STYLE = 16;
+	public static final int SOFT_GLOW_STYLE = 16; // soft glow
+	public static final int SKETCH_STYLE = 17; // sketch style
+	public static final int PAPER_CUT_STYLE = 18; // paper cut
 	
-	public static final int TOTAL_FILTER_NUM = 16;
+	public static final int TOTAL_FILTER_NUM = 17;
 	
 	/**
 	 * change bitmap filter style
@@ -92,6 +94,9 @@ public class BitmapFilter {
 		}
 		else if (styleNo == SOFT_GLOW_STYLE) {
 			return SoftGlowFilter.softGlowFilter(bitmap);
+		}
+		else if (styleNo == SKETCH_STYLE) {
+			return SketchFilter.changeToSketch(bitmap);
 		}
 		return bitmap;
 	}
