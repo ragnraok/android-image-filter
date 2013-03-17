@@ -13,10 +13,11 @@
 
 void oilFilter(int* pixels, int width, int height) {
 	int color = 0;
-	int model = 3;
+	int model = 10;
 
 	int* tempPixels = new int[width * height];
 	memcpy(tempPixels, pixels, sizeof(int) * width * height);
+
 
 	srand(time(NULL));
 

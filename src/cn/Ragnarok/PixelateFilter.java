@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 
 public class PixelateFilter {
-	private static int pixelSize = 4;
+	private static int pixelSize = 10;
 	private static int colorArray[];
 	private static int width;
 	private static int height;
