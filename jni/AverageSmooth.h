@@ -10,7 +10,7 @@
 
 #include "Util.h"
 
-// average 3x3 mask
+// average 5x5 mask
 void averageSmooth(int* pixels, int width, int height) {
 	int* tempPixels = new int[width * height];
 	memcpy(tempPixels, pixels, width * height * sizeof(int));
@@ -18,18 +18,19 @@ void averageSmooth(int* pixels, int width, int height) {
 	int sumR = 0;
 	int sumG = 0;
 	int sumB = 0;
-	for (int row = 1; row < height - 1; row++) {
-		for (int col = 1; col < width - 1; col++) {
+	int div = 25;
+	for (int row = 2; row < height - 2; row++) {
+		for (int col = 2; col < width - 2; col++) {
 			sumR = sumG = sumB = 0;
-			for (int m = -1; m <= 1; m++) {
-				for (int n = -1; n <= 1; n++) {
+			for (int m = -2; m <= 2; m++) {
+				for (int n = -2; n <= 2; n++) {
 					Color color(pixels[(row + m) * width + col + n]);
 					sumR += color.R();
 					sumG += color.G();
 					sumB += color.B();
 				}
 			}
-			pixels[row * width + col] = RGB2Color(sumR / 9, sumG / 9, sumB / 9);
+			pixels[row * width + col] = RGB2Color(sumR / div, sumG / div, sumB / div);
 		}
 	}
 
