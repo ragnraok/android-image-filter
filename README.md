@@ -21,7 +21,7 @@ to regenerate the library
 ```
 
 it is very simple, right? And you can see all filters in file [/src/cn/Ragnarok/BitmapFilter.java][3], it contains totally
-16 kinds of filters now!
+17 kinds of filters now!
 
 - Also, you can download the demo app from this [link][1]
 
