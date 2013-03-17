@@ -17,8 +17,9 @@ void softGlowFilter(int* pixels, int width, int height) {
 	int* tempPixels = new int[width * height];
 	memcpy(tempPixels, pixels, width * height * sizeof(int));
 
-	discreteGaussianBlurSigma(pixels, width, height, 1);
-	discreteGaussianBlurSigma(pixels, width, height, 1);
+	averageSmooth(pixels, width, height);
+	averageSmooth(pixels, width, height);
+	averageSmooth(pixels, width, height);
 
 	int originR = 0, originG = 0, originB = 0, originA = 0;
 	int pixR = 0, pixG = 0, pixB = 0, pixA = 0;
