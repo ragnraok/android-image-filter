@@ -21,7 +21,7 @@ void lomoAddBlackRound(int* pixels, int width, int height) {
 	double centerY = height / 2;
 
 	int currentPos;
-	double pixelsFalloff = 3.5;
+	double pixelsFalloff = 10;
 
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {

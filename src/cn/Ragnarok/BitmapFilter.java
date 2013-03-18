@@ -36,7 +36,6 @@ public class BitmapFilter {
 	public static final int GAUSSIAN_BLUR_STYLE = 15; // gaussian blur
 	public static final int SOFT_GLOW_STYLE = 16; // soft glow
 	public static final int SKETCH_STYLE = 17; // sketch style
-	public static final int PAPER_CUT_STYLE = 18; // paper cut
 	
 	public static final int TOTAL_FILTER_NUM = 17;
 	
