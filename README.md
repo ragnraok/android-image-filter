@@ -7,6 +7,7 @@ in some filter, I use NDK to implement it
 
 # Setup
 
+- Install Android NDK and properly configure it: [http://goo.gl/koTCb](http://goo.gl/koTCb)
 - Get a clean clone of this project, import the library in Ecliplse, click Project->Clean, then click Project->Build Project
 to regenerate the library
 - Then just add AndroidImageFilter as a dependency to your existing project.
@@ -25,8 +26,13 @@ it is very simple, right? And you can see all filters in file [/src/cn/Ragnarok/
 
 - Also, you can download the demo app from this [link][1]
 
+
+If you have any question, please open an [issue][4] and show your code and the program ouput, thanks!
+
  ![][2]
 
 [1]: http://s.yunio.com/lYlEKr
 [2]: http://i46.tinypic.com/263hff8.jpg
 [3]: https://github.com/ragnraok/android-image-filter/blob/master/src/cn/Ragnarok/BitmapFilter.java
+[4]: https://github.com/ragnraok/android-image-filter/issues?state=open
+
