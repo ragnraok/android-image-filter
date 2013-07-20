@@ -3,6 +3,10 @@ package cn.Ragnarok;
 import android.graphics.Bitmap;
 
 public class SoftGlowFilter {
+	static {
+		System.loadLibrary("AndroidImageFilter");
+	}
+	
 	public static Bitmap softGlowFilter(Bitmap bitmap) {
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();
