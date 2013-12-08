@@ -31,7 +31,7 @@ If you have any question, please open an [issue][4] and show your code and the p
 
  ![][2]
 
-[1]: http://s.yunio.com/lYlEKr
+[1]: https://s.yunio.com/6bE4ny
 [2]: http://i46.tinypic.com/263hff8.jpg
 [3]: https://github.com/ragnraok/android-image-filter/blob/master/src/cn/Ragnarok/BitmapFilter.java
 [4]: https://github.com/ragnraok/android-image-filter/issues?state=open
