@@ -19,6 +19,7 @@ public class TvFilter {
 		
 		int[] resultPixels = NativeFilterFunc.tvFilter(pixels, width, height);
 		returnBitmap.setPixels(resultPixels, 0, width, 0, 0, width, height);
+		
 		return returnBitmap;
 	}
 }

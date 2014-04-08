@@ -15,8 +15,7 @@ void hdrFilter(int* pixels, int width, int height) {
 	int* smoothPixels = new int[width * height];
 	memcpy(smoothPixels, pixels, width * height * sizeof(int));
 
-	//discreteGaussianBlur(smoothPixels, width, height);
-	discreteGaussianBlurSigma(pixels, width, height, 1);
+	discreteGaussianBlur(smoothPixels, width, height);
 
 	double newR = 0, newG = 0, newB = 0;
 	double blurA = 0;

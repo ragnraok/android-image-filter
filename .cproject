@@ -20,7 +20,7 @@
 					<folderInfo id="com.android.toolchain.gcc.1766879024.673599097" name="/" resourcePath="">
 						<toolChain id="com.android.toolchain.gcc.240438980" name="com.android.toolchain.gcc">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.android.targetPlatform.2048182059" isAbstract="false"/>
-							<builder command="${NDK_ROOT}/ndk-build" id="com.android.builder.1943804488" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder">
+							<builder arguments="" command="/Users/ragnarok/android-ndk-r9d/ndk-build" id="com.android.builder.1943804488" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder">
 								<outputEntries>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="obj"/>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="libs"/>
@@ -30,6 +30,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="jni"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="include"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -46,10 +47,8 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.android.AndroidPerProjectProfile"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration configurationName="Default">
-			<resource resourceType="PROJECT" workspacePath="/AndroidImageFilter"/>
-		</configuration>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/AndroidImageFilter"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

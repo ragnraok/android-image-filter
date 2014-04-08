@@ -11,7 +11,7 @@
 			<arguments>
 				<dictionary>
 					<key>?children?</key>
-					<value>?name?=outputEntries\|?children?=?name?=entry\\\\\\\|\\\|?name?=entry\\\\\\\|\\\|\||</value>
+					<value>?children?=?name?=entry\\\\\\\|\\\|?name?=entry\\\\\\\|\\\|\|?name?=outputEntries\||</value>
 				</dictionary>
 				<dictionary>
 					<key>?name?</key>
@@ -27,7 +27,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildCommand</key>
-					<value>${NDK_ROOT}/ndk-build</value>
+					<value>/Users/ragnarok/android-ndk-r9d/ndk-build</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.contents</key>
@@ -90,4 +90,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>include</name>
+			<type>2</type>
+			<location>/Users/ragnarok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include</location>
+		</link>
+	</linkedResources>
 </projectDescription>

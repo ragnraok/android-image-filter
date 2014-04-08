@@ -17,9 +17,7 @@ void softGlowFilter(int* pixels, int width, int height) {
 	int* tempPixels = new int[width * height];
 	memcpy(tempPixels, pixels, width * height * sizeof(int));
 
-	averageSmooth(pixels, width, height);
-	averageSmooth(pixels, width, height);
-	averageSmooth(pixels, width, height);
+	discreteGaussianBlur(pixels, width, height);
 
 	int originR = 0, originG = 0, originB = 0, originA = 0;
 	int pixR = 0, pixG = 0, pixB = 0, pixA = 0;
@@ -46,9 +44,9 @@ void softGlowFilter(int* pixels, int width, int height) {
 			pixR = ((pixR < 128) ? (2 * ((originR >> 1) + 64)) * ((float) pixR / 255) : (
 					255 - (2 * (255 - (( originR >> 1) + 64)) * (float)( 255 - pixR) / 255)));
 			pixG = ((pixG < 128) ? (2 * ((originG >> 1) + 64)) * ((float) pixG / 255) : (
-								255 - (2 * (255 - (( originG >> 1) + 64)) * (float)( 255 - pixG) / 255)));
+					255 - (2 * (255 - (( originG >> 1) + 64)) * (float)( 255 - pixG) / 255)));
 			pixB = ((pixB < 128) ? (2 * ((originB >> 1) + 64)) * ((float) pixB / 255) : (
-											255 - (2 * (255 - (( originB >> 1) + 64)) * (float)(255 - pixB) / 255)));
+					255 - (2 * (255 - (( originB >> 1) + 64)) * (float)(255 - pixB) / 255)));
 
 			pixR = min(255, max(pixR, 0));
 			pixG = min(255, max(pixG, 0));
