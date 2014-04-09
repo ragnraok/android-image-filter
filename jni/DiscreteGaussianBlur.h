@@ -12,7 +12,7 @@
 #include "ColorGetter.h"
 
 void discreteGaussianBlurSigma(int *pixels, int width, int height, double sigma) {
-	LOGI("start calculate kernel");
+	//LOGI("start calculate kernel");
 	int ksize = sigma * 3 + 1;
 	if (ksize == 1) {
 		return;
@@ -41,13 +41,13 @@ void discreteGaussianBlurSigma(int *pixels, int width, int height, double sigma)
 			kernel[i * ksize + j] /= sum;
 		}
 	}
-	LOGI("finish calculate kernel");
+	//LOGI("finish calculate kernel");
 
 	double sumR, sumG, sumB;
 	int index = 0;
 	int bound = ksize / 2;
 
-	LOGI("start calculate filter");
+	//LOGI("start calculate filter");
 	for (int row = bound; row < height - bound; row++) {
 		for (int col = bound; col < width - bound; col++) {
 			index = 0;
@@ -66,7 +66,7 @@ void discreteGaussianBlurSigma(int *pixels, int width, int height, double sigma)
 			pixels[row * width + col] = RGB2Color(int(sumR), int(sumG), int(sumB));
 		}
 	}
-	LOGI("finish calculate filter");
+	//LOGI("finish calculate filter");
 
 	delete [] tempPixels;
 	delete [] kernel;
