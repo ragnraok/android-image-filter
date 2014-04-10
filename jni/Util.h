@@ -19,7 +19,8 @@
 #define		LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 #define	 	LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
-typedef void (*IMG_PROC_FUNC)(int*, int, int);
+typedef void (*GENERAL_IMG_PROC_FUNC)(int*, int, int); // pixels, width, height
+typedef void (*VARGS_IMG_PROC_FUNC)(int*, int, int, ...); // pixles, width, height, options
 
 static inline int min(int a, int b) {
 	if (a < b) {
@@ -52,7 +53,7 @@ static inline void releaseArray(JNIEnv* env, jintArray array1, jint* array2) {
 	env->ReleaseIntArrayElements(array1, array2, 0);
 }
 
-static inline jintArray procImage(JNIEnv* env, jintArray pixels, jint width, jint height, IMG_PROC_FUNC procFunc) {
+static inline jintArray procImage(JNIEnv* env, jintArray pixels, jint width, jint height, GENERAL_IMG_PROC_FUNC procFunc) {
 	jint* pixelsBuff = getPixleArray(env, pixels);
 
 	if (pixelsBuff == NULL) {
