@@ -14,7 +14,7 @@
 class AverageSmoothFilter : public ImageFilter {
 public:
 	AverageSmoothFilter(int *_pixels, int _height, int _width, int _maskSize = 5);
-	virtual ~AverageSmoothFilter();
+	virtual ~AverageSmoothFilter() {};
 	int* procImage();
 private:
 	int maskSize;

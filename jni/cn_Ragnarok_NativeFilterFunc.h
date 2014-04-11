@@ -53,7 +53,7 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_tvFilter
  * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_averageSmooth
-  (JNIEnv *, jclass, jintArray, jint, jint);
+  (JNIEnv *, jclass, jintArray, jint, jint, jint);
 
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
@@ -69,7 +69,7 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_hdrFilter
  * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur
-  (JNIEnv *, jclass, jintArray, jint, jint);
+  (JNIEnv *, jclass, jintArray, jint, jint, jdouble);
 
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc

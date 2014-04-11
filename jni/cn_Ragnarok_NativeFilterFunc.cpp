@@ -11,13 +11,14 @@
 #include "NeonFilter.h"
 #include "OilFilter.h"
 #include "TvFilter.h"
-#include "AverageSmooth.h"
 #include "LomoAddBlackRound.h"
 #include "HDRFilter.h"
-#include "DiscreteGaussianBlur.h"
 #include "SoftGlowFilter.h"
 #include "SketchFilter.h"
+
 #include "Util.h"
+#include "AverageSmoothFilter.h"
+#include "GaussianBlurFilter.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
@@ -52,8 +53,15 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_tvFilter(JNIEnv* env, jclass object,
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_averageSmooth(JNIEnv* env,
-		jclass object, jintArray pixels, jint width, jint height) {
-	jintArray result = procImage(env, pixels, width, height, averageSmooth);
+		jclass object, jintArray pixels, jint width, jint height, jint maskSize) {
+	jint* pixelsBuff = getPixleArray(env, pixels);
+
+	if (pixelsBuff == NULL) {
+		LOGE("cannot get the pixels");
+	}
+	AverageSmoothFilter filter = AverageSmoothFilter(pixelsBuff, width, height, maskSize);
+	jint *_result = filter.procImage();
+	jintArray result = jintToJintArray(env, width * height, _result);
 	return result;
 }
 
@@ -64,8 +72,18 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_hdrFilter(JNIEnv* env, jclass object
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur(JNIEnv* env,
-		jclass object, jintArray pixels, jint width, jint height) {
-	jintArray result = procImage(env, pixels, width, height, discreteGaussianBlur);
+		jclass object, jintArray pixels, jint width, jint height, jdouble sigma) {
+//	jintArray result = procImage(env, pixels, width, height, discreteGaussianBlur);
+//	return result;
+	jint* pixelsBuff = getPixleArray(env, pixels);
+
+	if (pixelsBuff == NULL) {
+		LOGE("cannot get the pixels");
+	}
+	GaussianBlurFilter filter = GaussianBlurFilter(pixelsBuff, width, height,
+			sigma);
+	jint *_result = filter.procImage();
+	jintArray result = jintToJintArray(env, width * height, _result);
 	return result;
 }
 

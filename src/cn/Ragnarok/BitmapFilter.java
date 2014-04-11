@@ -10,18 +10,14 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 
-/**
- * 滤镜效果的类，定义了基本的渲染方法
- * @author ragnarok
- *
- */
+
 public class BitmapFilter {
 	/**
-	 * 所有滤镜效果的id
+	 * filter style id;
 	 */
 	public static final int GRAY_STYLE = 1; // gray scale
 	public static final int RELIEF_STYLE = 2; // relief
-	public static final int BLUR_STYLE = 3; // average blur
+	public static final int AVERAGE_BLUR_STYLE = 3; // average blur
 	public static final int OIL_STYLE = 4; // oil painting
 	public static final int NEON_STYLE = 5; // neon
 	public static final int PIXELATE_STYLE = 6; // pixelate
@@ -37,14 +33,14 @@ public class BitmapFilter {
 	public static final int SOFT_GLOW_STYLE = 16; // soft glow
 	public static final int SKETCH_STYLE = 17; // sketch style
 	
-	public static final int TOTAL_FILTER_NUM = 17;
+	public static final int TOTAL_FILTER_NUM = SKETCH_STYLE;
 	
 	/**
 	 * change bitmap filter style
 	 * @param bitmap
 	 * @param styeNo, 效果id
 	 */
-	public static Bitmap changeStyle(Bitmap bitmap, int styleNo) {
+	public static Bitmap changeStyle(Bitmap bitmap, int styleNo, Object... options) {
 		if (styleNo == GRAY_STYLE) {
 			//return changeToGray(bitmap);
 			return GrayFilter.changeToGray(bitmap);
@@ -52,8 +48,8 @@ public class BitmapFilter {
 		else if (styleNo == RELIEF_STYLE) {
 			return ReliefFilter.changeToRelief(bitmap);
 		}
-		else if (styleNo == BLUR_STYLE) {
-			return BlurFilter.changeToVague(bitmap);
+		else if (styleNo == AVERAGE_BLUR_STYLE) {
+			return BlurFilter.changeToAverageBlur(bitmap, (Integer)options[0]); // maskSize
 		}
 		else if (styleNo == OIL_STYLE) {
 			return OilFilter.changeToOil(bitmap);
@@ -89,7 +85,7 @@ public class BitmapFilter {
 			return HDRFilter.changeToHDR(bitmap);
 		}
 		else if (styleNo == GAUSSIAN_BLUR_STYLE) {
-			return GaussianBlurFilter.changeToGaussianBlur(bitmap);
+			return GaussianBlurFilter.changeToGaussianBlur(bitmap, (Double)options[0]);
 		}
 		else if (styleNo == SOFT_GLOW_STYLE) {
 			return SoftGlowFilter.softGlowFilter(bitmap);
