@@ -93,8 +93,18 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur(JNIEnv* env,
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_softGlow(JNIEnv* env, jclass object,
-		jintArray pixels, jint width, jint height) {
-	jintArray result = procImage(env, pixels, width, height, softGlowFilter);
+		jintArray pixels, jint width, jint height, jdouble blurSigma) {
+//	jintArray result = procImage(env, pixels, width, height, softGlowFilter);
+//	return result;
+	jint* pixelsBuff = getPixleArray(env, pixels);
+
+	if (pixelsBuff == NULL) {
+		LOGE("cannot get the pixels");
+	}
+	SoftGlowFilter filter = SoftGlowFilter(pixelsBuff, width, height, blurSigma);
+	jint *_result = filter.procImage();
+	jintArray result = jintToJintArray(env, width * height, _result);
+
 	return result;
 }
 

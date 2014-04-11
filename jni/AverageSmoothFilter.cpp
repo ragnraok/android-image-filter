@@ -7,8 +7,8 @@
 
 #include "AverageSmoothFilter.h"
 
-AverageSmoothFilter::AverageSmoothFilter(int *_pixels, int _height, int _width, int _maskSize) :
-	ImageFilter(_pixels, _height, _width),
+AverageSmoothFilter::AverageSmoothFilter(int *_pixels, int _width, int _height, int _maskSize) :
+	ImageFilter(_pixels, _width, _height),
 	maskSize(_maskSize) {
 	// TODO Auto-generated constructor stub
 

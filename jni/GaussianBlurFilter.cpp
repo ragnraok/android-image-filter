@@ -9,8 +9,8 @@
 #include "GaussianBlurFilter.h"
 #include <math.h>
 
-GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _height, int _width, double _sigma):
-	ImageFilter(_pixels, _height, _width),
+GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _width, int _height, double _sigma):
+	ImageFilter(_pixels, _width, _height),
 	sigma(_sigma) {
 
 	// pre-calculate kernel

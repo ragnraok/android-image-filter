@@ -14,7 +14,7 @@
 
 class HDRFilter : public ImageFilter {
 public:
-	HDRFilter(int *_pixels, int _height, int _width): ImageFilter(_pixels, _height, _width) {};
+	HDRFilter(int *_pixels, int _width, int _height): ImageFilter(_pixels, _width, _height) {};
 	int* procImage();
 };
 

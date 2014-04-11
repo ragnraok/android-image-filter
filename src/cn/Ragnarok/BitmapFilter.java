@@ -42,13 +42,15 @@ public class BitmapFilter {
 	 */
 	public static Bitmap changeStyle(Bitmap bitmap, int styleNo, Object... options) {
 		if (styleNo == GRAY_STYLE) {
-			//return changeToGray(bitmap);
 			return GrayFilter.changeToGray(bitmap);
 		}
 		else if (styleNo == RELIEF_STYLE) {
 			return ReliefFilter.changeToRelief(bitmap);
 		}
 		else if (styleNo == AVERAGE_BLUR_STYLE) {
+			if (options.length < 1) {
+				return BlurFilter.changeToAverageBlur(bitmap, 2);
+			}
 			return BlurFilter.changeToAverageBlur(bitmap, (Integer)options[0]); // maskSize
 		}
 		else if (styleNo == OIL_STYLE) {
@@ -85,18 +87,22 @@ public class BitmapFilter {
 			return HDRFilter.changeToHDR(bitmap);
 		}
 		else if (styleNo == GAUSSIAN_BLUR_STYLE) {
+			if (options.length < 1) {
+				return GaussianBlurFilter.changeToGaussianBlur(bitmap, 2.0);
+			}
 			return GaussianBlurFilter.changeToGaussianBlur(bitmap, (Double)options[0]); // sigma
 		}
 		else if (styleNo == SOFT_GLOW_STYLE) {
-			return SoftGlowFilter.softGlowFilter(bitmap);
+			if (options.length < 1) {
+				return SoftGlowFilter.softGlowFilter(bitmap, 2.0);
+			}
+			return SoftGlowFilter.softGlowFilter(bitmap, (Double)options[0]);
 		}
 		else if (styleNo == SKETCH_STYLE) {
 			return SketchFilter.changeToSketch(bitmap);
 		}
 		return bitmap;
 	}
-	
-	
 
 }
 

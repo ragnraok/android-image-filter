@@ -6,7 +6,8 @@ LOCAL_MODULE    := AndroidImageFilter
 LOCAL_SRC_FILES := cn_Ragnarok_NativeFilterFunc.cpp \
 					AverageSmoothFilter.cpp \
 					GaussianBlurFilter.cpp \
-					HDRFilter.cpp
+					HDRFilter.cpp \
+					SoftGlowFilter.cpp
 
 LOCAL_LDLIBS := -lm -llog
 

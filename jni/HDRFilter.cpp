@@ -12,8 +12,8 @@ int* HDRFilter::procImage() {
 	int *smoothPixels = new int[this->height * this->width];
 	memcpy(smoothPixels, this->pixels, width * height * sizeof(int));
 
-	GaussianBlurFilter gaussianFilter = GaussianBlurFilter(smoothPixels, width, height, 2.0);
-	smoothPixels = gaussianFilter.procImage();
+	GaussianBlurFilter *gaussianFilter = new GaussianBlurFilter(smoothPixels, width, height, 2.0);
+	smoothPixels = gaussianFilter->procImage();
 
 	double newR = 0, newG = 0, newB = 0;
 	double blurA = 0;
@@ -42,6 +42,8 @@ int* HDRFilter::procImage() {
 			pixels[row * width + col] = ARGB2Color(blurA, newR * 255, newG * 255, newB * 255);
 		}
 	}
+
+	delete gaussianFilter;
 
 	return pixels;
 }
