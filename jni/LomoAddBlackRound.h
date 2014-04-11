@@ -13,7 +13,7 @@
 #include "ColorGetter.h"
 
 class LomoAndBlackRound : public ImageFilter {
-
+public:
 };
 
 double scaleFunc(double radius, double dis, double pixelsFalloff) {

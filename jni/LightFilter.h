@@ -16,6 +16,7 @@
 
 class LightFilter : public ImageFilter {
 public:
+	LightFilter(int *_pixels, int _width, int _height);
 	LightFilter(int *_pixels, int _width, int _height, int centerX, int centerY, int radius);
 	int* procImage();
 private:

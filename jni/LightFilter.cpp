@@ -7,6 +7,13 @@
 
 #include "LightFilter.h"
 
+LightFilter::LightFilter(int *_pixels, int _width, int _height):
+	ImageFilter(_pixels, _width, _height) {
+	centerX = width / 2;
+	centerY = height / 2;
+	radius = min(centerX, centerY);
+}
+
 LightFilter::LightFilter(int *_pixels, int _width, int _height, int _centerX, int _centerY, int _radius):
 	ImageFilter(_pixels, _width, _height),
 	centerX(_centerX),
