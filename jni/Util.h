@@ -10,7 +10,7 @@
 
 #include <android/log.h>
 #include <jni.h>
-#include <cstddef>
+#include <stddef.h>
 
 #include "ColorGetter.h"
 
@@ -19,21 +19,27 @@
 #define LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 #define	LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
-#define	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, FilterClass, options, result) \
+/**
+ * the follow two macros only work under gcc compiler
+ */
+#define	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, FilterClass, options) ({\
 	jint* pixelsBuff = getPixleArray(env, pixels); \
 	FilterClass filter(pixelsBuff, width, height, options); \
 	int *_result = filter.procImage(); \
-	result = jintToJintArray(env, width * height, _result);
+	result = jintToJintArray(env, width * height, _result); \
+	result; \
+})\
 
-#define PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, FilterClass, result) \
+#define PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, FilterClass) ({\
 	jint* pixelsBuff = getPixleArray(env, pixels); \
 	FilterClass filter(pixelsBuff, width, height); \
 	int *_result = filter.procImage(); \
-	result = jintToJintArray(env, width * height, _result);
+	result = jintToJintArray(env, width * height, _result); \
+	result; \
+})\
 
 
 typedef void (*GENERAL_IMG_PROC_FUNC)(int*, int, int); // pixels, width, height
-typedef void (*VARGS_IMG_PROC_FUNC)(int*, int, int, ...); // pixles, width, height, options
 
 static inline int min(int a, int b) {
 	if (a < b) {
@@ -50,8 +56,7 @@ static inline int max(int a, int b) {
 }
 
 static inline jint* getPixleArray(JNIEnv* env, jintArray buff) {
-	jint* pixelsBuff;
-	pixelsBuff = env->GetIntArrayElements(buff, false);
+	jint* pixelsBuff = env->GetIntArrayElements(buff, (jboolean*)false);
 	if (pixelsBuff == NULL) {
 		LOGE("can't get pixels");
 	}

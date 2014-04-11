@@ -24,8 +24,7 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jint centerX, jint centerY, jint radius) {
 
 	LightFilterOptions options(centerX, centerY, radius);
-	jintArray result;
-	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, LightFilter, options, result);
+	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, LightFilter, options);
 	return result;
 }
 
@@ -33,8 +32,7 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_lomoAddBlckRound(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jdouble roundRadius) {
 
 	BlackRoundOptions options(roundRadius);
-	jintArray result;
-	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, LomoAddBlackRound, options, result);
+	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, LomoAddBlackRound, options);
 	return result;
 }
 
@@ -42,41 +40,35 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_neonFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jint r, jint g, jint b) {
 
 	NeonFilterOptions options(r, g, b);
-	jintArray result;
-	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, NeonFilter, options, result);
+	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, NeonFilter, options);
 	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_oilFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
 
-	jintArray result;
-	PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, OilFilter, result);
+	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, OilFilter);
 	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_tvFilter(JNIEnv* env, jclass object,
 		jintArray pixels, jint width, jint height) {
-
-	jintArray result;
-	PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, TvFilter, result);
+	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, TvFilter);
 	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_averageSmooth(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jint maskSize) {
 
-	jintArray result;
 	AverageSmoothOptions options(maskSize);
-	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, AverageSmoothFilter, options, result);
+	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, AverageSmoothFilter, options);
 	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_hdrFilter(JNIEnv* env, jclass object,
 		jintArray pixels, jint width, jint height) {
 
-	jintArray result;
-	PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, HDRFilter, result);
+	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, HDRFilter);
 	return result;
 }
 
@@ -84,26 +76,22 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jdouble sigma) {
 
 	GaussianBlurOptions options(sigma);
-	jintArray result;
-	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, GaussianBlurFilter, options, result);
+	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, GaussianBlurFilter, options);
 	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_softGlow(JNIEnv* env, jclass object,
 		jintArray pixels, jint width, jint height, jdouble blurSigma) {
 
-	jintArray result;
 	SoftGlowOptions options(blurSigma);
-	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, SoftGlowFilter, options, result);
+	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, SoftGlowFilter, options);
 
 	return result;
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_sketchFilter(JNIEnv* env, jclass object,
 		jintArray pixels, jint width, jint height) {
-
-	jintArray result;
-	PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, SketchFilter ,result);
+	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, SketchFilter);
 
 	return result;
 }
