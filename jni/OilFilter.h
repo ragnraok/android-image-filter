@@ -8,8 +8,10 @@
 #ifndef OLDFILTER_H_
 #define OLDFILTER_H_
 
-#include "Util.h"
 #include <stdlib.h>
+
+#include "Util.h"
+
 
 void oilFilter(int* pixels, int width, int height) {
 	int color = 0;

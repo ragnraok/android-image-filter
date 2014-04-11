@@ -57,7 +57,10 @@ public class BitmapFilter {
 			return OilFilter.changeToOil(bitmap);
 		}
 		else if (styleNo == NEON_STYLE) {
-			return NeonFilter.changeToNeon(bitmap);
+			if (options.length < 3) {
+				return NeonFilter.changeToNeon(bitmap, 200, 50, 100);
+			}
+			return NeonFilter.changeToNeon(bitmap, (Integer)options[0], (Integer)options[1], (Integer)options[2]);
 		}
 		else if (styleNo == PIXELATE_STYLE) {
 			return PixelateFilter.changeToPixelate(bitmap);

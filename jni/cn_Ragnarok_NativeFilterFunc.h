@@ -29,7 +29,7 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_lomoAddBlckRound
  * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_neonFilter
-  (JNIEnv *, jclass, jintArray, jint, jint);
+  (JNIEnv *, jclass, jintArray, jint, jint, jint, jint, jint);
 
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc

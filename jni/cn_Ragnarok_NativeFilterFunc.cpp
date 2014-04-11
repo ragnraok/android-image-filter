@@ -50,9 +50,15 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_lomoAddBlckRound(JNIEnv* env,
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_neonFilter(JNIEnv* env,
-		jclass object, jintArray pixels, jint width, jint height) {
-	jintArray result = procImage(env, pixels, width, height, neonFilter);
+		jclass object, jintArray pixels, jint width, jint height, jint r, jint g, jint b) {
+	int* pixelsBuff = getPixleArray(env, pixels);
 
+	if (pixelsBuff == NULL) {
+		LOGE("cannot get the pixels");
+	}
+	NeonFilter filter = NeonFilter(pixelsBuff, width, height, r, g, b);
+	jint *_result = filter.procImage();
+	jintArray result = jintToJintArray(env, width * height, _result);
 	return result;
 }
 
