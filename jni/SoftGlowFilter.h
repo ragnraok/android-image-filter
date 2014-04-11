@@ -13,9 +13,16 @@
 #include "ImageFilter.h"
 #include "GaussianBlurFilter.h"
 
+typedef struct _softGlowOptions {
+	_softGlowOptions(double s) {
+		this->blurSigma = s;
+	}
+	double blurSigma;
+} SoftGlowOptions;
+
 class SoftGlowFilter : public ImageFilter {
 public:
-	SoftGlowFilter(int *_pixels, int _width, int _height, double _blurSigma = 2.0);
+	SoftGlowFilter(int *_pixels, int _width, int _height, SoftGlowOptions options);
 	int* procImage();
 private:
 	double blurSigma;

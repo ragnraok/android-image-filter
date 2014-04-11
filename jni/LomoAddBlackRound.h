@@ -12,9 +12,16 @@
 #include "ImageFilter.h"
 #include "ColorGetter.h"
 
+typedef struct _blackRoundOptions {
+	_blackRoundOptions(double r) {
+		roundRadius = r;
+	}
+	double roundRadius;
+} BlackRoundOptions;
+
 class LomoAddBlackRound : public ImageFilter {
 public:
-	LomoAddBlackRound(int *_pixels, int _width, int _height, double _roundRadius);
+	LomoAddBlackRound(int *_pixels, int _width, int _height, BlackRoundOptions options);
 	int* procImage();
 private:
 	double roundRadius;

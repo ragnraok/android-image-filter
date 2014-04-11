@@ -7,9 +7,9 @@
 
 #include "SoftGlowFilter.h"
 
-SoftGlowFilter::SoftGlowFilter(int *_pixels, int _width, int _height, double _blurSigma):
+SoftGlowFilter::SoftGlowFilter(int *_pixels, int _width, int _height, SoftGlowOptions options):
 	ImageFilter(_pixels, _width, _height),
-	blurSigma(_blurSigma) {
+	blurSigma(options.blurSigma) {
 
 }
 

@@ -8,11 +8,11 @@
 
 #include "NeonFilter.h"
 
-NeonFilter::NeonFilter(int* pixels, int width, int height, int r, int g, int b):
+NeonFilter::NeonFilter(int* pixels, int width, int height, NeonFilterOptions options):
 	ImageFilter(pixels, width, height),
-	neonR(r),
-	neonG(g),
-	neonB(b) {
+	neonR(options.r),
+	neonG(options.g),
+	neonB(options.b) {
 
 }
 

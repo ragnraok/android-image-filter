@@ -11,9 +11,16 @@
 #include "ImageFilter.h"
 #include "Util.h"
 
+typedef struct _gaussianBlurOptions {
+	_gaussianBlurOptions(double s) {
+		this->sigma = s;
+	}
+	double sigma;
+} GaussianBlurOptions;
+
 class GaussianBlurFilter : public ImageFilter {
 public:
-	GaussianBlurFilter(int *_pixels, int _width, int _height, double _sigma = 2.0);
+	GaussianBlurFilter(int *_pixels, int _width, int _height, GaussianBlurOptions opions);
 	~GaussianBlurFilter() {
 		this->sigma = 0;
 		delete [] kernel;

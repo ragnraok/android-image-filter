@@ -16,9 +16,20 @@
 #include "ColorGetter.h"
 #include "ImageFilter.h"
 
+typedef struct _neonFilterOptions {
+	_neonFilterOptions(int r, int g, int b) {
+		this->r = r;
+		this->g = g;
+		this->b = b;
+	}
+	int r;
+	int g;
+	int b;
+} NeonFilterOptions;
+
 class NeonFilter : public ImageFilter {
 public:
-	NeonFilter(int *_pixels, int _width, int _height, int r, int g, int b);
+	NeonFilter(int *_pixels, int _width, int _height, NeonFilterOptions options);
 	int* procImage();
 private:
 	int neonR;

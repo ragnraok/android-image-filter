@@ -11,9 +11,16 @@
 #include "ImageFilter.h"
 #include "Util.h"
 
+typedef struct _averageSmoothOptions {
+	_averageSmoothOptions(int maskSize) {
+		this->maskSize = maskSize;
+	}
+	int maskSize;
+} AverageSmoothOptions;
+
 class AverageSmoothFilter : public ImageFilter {
 public:
-	AverageSmoothFilter(int *_pixels, int _height, int _width, int _maskSize = 5);
+	AverageSmoothFilter(int *_pixels, int _height, int _width, AverageSmoothOptions options);
 	virtual ~AverageSmoothFilter() {};
 	int* procImage();
 private:

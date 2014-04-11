@@ -10,9 +10,9 @@
 
 #include "LomoAddBlackRound.h"
 
-LomoAddBlackRound::LomoAddBlackRound(int *_pixels, int _height, int _width, double _roundRadius):
+LomoAddBlackRound::LomoAddBlackRound(int *_pixels, int _height, int _width, BlackRoundOptions options):
 	ImageFilter(_pixels, _height, _width),
-	roundRadius(_roundRadius),
+	roundRadius(options.roundRadius),
 	pixelsFalloff(10) {
 
 }

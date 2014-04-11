@@ -14,11 +14,11 @@ LightFilter::LightFilter(int *_pixels, int _width, int _height):
 	radius = min(centerX, centerY);
 }
 
-LightFilter::LightFilter(int *_pixels, int _width, int _height, int _centerX, int _centerY, int _radius):
+LightFilter::LightFilter(int *_pixels, int _width, int _height, LightFilterOptions options):
 	ImageFilter(_pixels, _width, _height),
-	centerX(_centerX),
-	centerY(_centerY),
-	radius(_radius) {
+	centerX(options.centerX),
+	centerY(options.centerY),
+	radius(options.radius) {
 
 }
 

@@ -14,10 +14,22 @@
 
 #include "ColorGetter.h"
 
-#define		LOG_TAG    "AndroidImageFilter"
-#define		LOGI(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
-#define		LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
-#define	 	LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+#define	LOG_TAG    "AndroidImageFilter"
+#define	LOGI(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#define LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+#define	LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+
+#define	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, FilterClass, options, result) \
+	jint* pixelsBuff = getPixleArray(env, pixels); \
+	FilterClass filter(pixelsBuff, width, height, options); \
+	int *_result = filter.procImage(); \
+	result = jintToJintArray(env, width * height, _result);
+
+#define PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, FilterClass, result) \
+	jint* pixelsBuff = getPixleArray(env, pixels); \
+	FilterClass filter(pixelsBuff, width, height); \
+	int *_result = filter.procImage(); \
+	result = jintToJintArray(env, width * height, _result);
 
 
 typedef void (*GENERAL_IMG_PROC_FUNC)(int*, int, int); // pixels, width, height
