@@ -8,7 +8,8 @@ LOCAL_SRC_FILES := cn_Ragnarok_NativeFilterFunc.cpp \
 					GaussianBlurFilter.cpp \
 					HDRFilter.cpp \
 					SoftGlowFilter.cpp \
-					LightFilter.cpp
+					LightFilter.cpp \
+					LomoAddBlackRound.cpp
 
 LOCAL_LDLIBS := -lm -llog
 

@@ -83,10 +83,15 @@ public class BitmapFilter {
 				int height = bitmap.getHeight();
 				return LightFilter.changeToLight(bitmap, width / 2, height / 2, Math.min(width / 2, height / 2));
 			}
-			return LightFilter.changeToLight(bitmap, (Integer)options[0], (Integer)options[1], (Integer)options[2]); // centerX, centerY, radius
+			return LightFilter.changeToLight(bitmap, (Integer)options[0], 
+					(Integer)options[1], (Integer)options[2]); // centerX, centerY, radius
 		}
 		else if (styleNo == LOMO_STYLE) {
-			return LomoFilter.changeToLomo(bitmap);
+			if (options.length < 1) {
+				double radius = (bitmap.getWidth() / 2) * 95 / 100;
+				return LomoFilter.changeToLomo(bitmap, radius);
+			}
+			return LomoFilter.changeToLomo(bitmap, (Double)options[0]);
 		}
 		else if (styleNo == HDR_STYLE) {
 			return HDRFilter.changeToHDR(bitmap);

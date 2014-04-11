@@ -13,7 +13,7 @@
 
 class GaussianBlurFilter : public ImageFilter {
 public:
-	GaussianBlurFilter(int *_pixels, int _height, int _width, double _sigma = 2.0);
+	GaussianBlurFilter(int *_pixels, int _width, int _height, double _sigma = 2.0);
 	~GaussianBlurFilter() {
 		this->sigma = 0;
 		delete [] kernel;

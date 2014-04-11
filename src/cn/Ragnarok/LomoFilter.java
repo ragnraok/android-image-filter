@@ -13,7 +13,7 @@ public class LomoFilter {
 		System.loadLibrary("AndroidImageFilter");
 	}
 	
-	public static Bitmap changeToLomo(Bitmap bitmap) {
+	public static Bitmap changeToLomo(Bitmap bitmap, double roundRadius) {
 		
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();
@@ -44,7 +44,7 @@ public class LomoFilter {
 		int[] pixels = new int[width * height];
 		returnBitmap.getPixels(pixels, 0, width, 0, 0, width, height);
 		
-		int[] resultPixels = NativeFilterFunc.lomoAddBlckRound(pixels, width, height);
+		int[] resultPixels = NativeFilterFunc.lomoAddBlckRound(pixels, width, height, roundRadius);
 		returnBitmap.setPixels(resultPixels, 0, width, 0, 0, width, height);
 		
 		return returnBitmap;
