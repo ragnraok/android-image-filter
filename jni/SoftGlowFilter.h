@@ -8,10 +8,6 @@
 #ifndef SOFTGLOWFILTER_H_
 #define SOFTGLOWFILTER_H_
 
-//#include "DiscreteGaussianBlur.h"
-//#include "BrightContrastFilter.h"
-//#include "ColorGetter.h"
-
 #include "Util.h"
 #include "ColorGetter.h"
 #include "ImageFilter.h"

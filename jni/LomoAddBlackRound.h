@@ -9,6 +9,12 @@
 #define LOMOADDBLACKROUND_H_
 
 #include "Util.h"
+#include "ImageFilter.h"
+#include "ColorGetter.h"
+
+class LomoAndBlackRound : public ImageFilter {
+
+};
 
 double scaleFunc(double radius, double dis, double pixelsFalloff) {
 	return 1 - pow(((dis - radius) / pixelsFalloff), 2);

@@ -13,7 +13,7 @@ extern "C" {
  * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_lightFilter
-  (JNIEnv *, jclass, jintArray, jint, jint);
+  (JNIEnv *, jclass, jintArray, jint, jint, jint, jint, jint);
 
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc

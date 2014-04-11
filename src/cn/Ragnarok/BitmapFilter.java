@@ -78,7 +78,12 @@ public class BitmapFilter {
 			return SharpenFilter.changeToSharpen(bitmap);
 		}
 		else if (styleNo == LIGHT_STYLE) {
-			return LightFilter.changeToLight(bitmap);
+			if (options.length < 3) {
+				int width = bitmap.getWidth();
+				int height = bitmap.getHeight();
+				return LightFilter.changeToLight(bitmap, width / 2, height / 2, Math.min(width / 2, height / 2));
+			}
+			return LightFilter.changeToLight(bitmap, (Integer)options[0], (Integer)options[1], (Integer)options[2]); // centerX, centerY, radius
 		}
 		else if (styleNo == LOMO_STYLE) {
 			return LomoFilter.changeToLomo(bitmap);

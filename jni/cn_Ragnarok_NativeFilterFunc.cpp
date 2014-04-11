@@ -7,7 +7,7 @@
  */
 
 #include "cn_Ragnarok_NativeFilterFunc.h"
-#include "LightFilter.h"
+
 #include "NeonFilter.h"
 #include "OilFilter.h"
 #include "TvFilter.h"
@@ -19,10 +19,18 @@
 #include "AverageSmoothFilter.h"
 #include "GaussianBlurFilter.h"
 #include "HDRFilter.h"
+#include "LightFilter.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
-		jclass object, jintArray pixels, jint width, jint height) {
-	jintArray result = procImage(env, pixels, width, height, lightFilter);
+		jclass object, jintArray pixels, jint width, jint height, jint centerX, jint centerY, jint radius) {
+	jint* pixelsBuff = getPixleArray(env, pixels);
+
+	if (pixelsBuff == NULL) {
+		LOGE("cannot get the pixels");
+	}
+	LightFilter filter = LightFilter(pixelsBuff, width, height, centerX, centerY, radius);
+	jint *_result = filter.procImage();
+	jintArray result = jintToJintArray(env, width * height, _result);
 	return result;
 }
 
