@@ -38,7 +38,7 @@ public class BitmapFilter {
 	/**
 	 * change bitmap filter style
 	 * @param bitmap
-	 * @param styeNo, 效果id
+	 * @param styeNo, filter sytle id
 	 */
 	public static Bitmap changeStyle(Bitmap bitmap, int styleNo, Object... options) {
 		if (styleNo == GRAY_STYLE) {
@@ -85,7 +85,7 @@ public class BitmapFilter {
 			return HDRFilter.changeToHDR(bitmap);
 		}
 		else if (styleNo == GAUSSIAN_BLUR_STYLE) {
-			return GaussianBlurFilter.changeToGaussianBlur(bitmap, (Double)options[0]);
+			return GaussianBlurFilter.changeToGaussianBlur(bitmap, (Double)options[0]); // sigma
 		}
 		else if (styleNo == SOFT_GLOW_STYLE) {
 			return SoftGlowFilter.softGlowFilter(bitmap);

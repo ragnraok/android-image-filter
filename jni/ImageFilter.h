@@ -15,7 +15,7 @@
  */
 class ImageFilter {
 public:
-	ImageFilter(int *_pixels, int _height, int _width): height(_height), width(_width) {
+	ImageFilter(int *_pixels = NULL, int _height = 0, int _width = 0): height(_height), width(_width) {
 //		pixels = new int[width * height];
 //		memcpy(pixels, _pixels, width * height * sizeof(int));
 		this->pixels = _pixels; // avoid alloc redundant pixels buffer
