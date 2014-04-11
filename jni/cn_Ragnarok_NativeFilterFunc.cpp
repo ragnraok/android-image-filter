@@ -36,8 +36,6 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lomoAddBlckRound(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jdouble roundRadius) {
-//	jintArray result = procImage(env, pixels, width, height, lomoAddBlackRound);
-//	return result;
 	jint* pixelsBuff = getPixleArray(env, pixels);
 
 	if (pixelsBuff == NULL) {
@@ -64,9 +62,6 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_neonFilter(JNIEnv* env,
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_oilFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height) {
-//	jintArray result = procImage(env, pixels, width, height, oilFilter);
-//
-//	return result;
 
 	int* pixelsBuff = getPixleArray(env, pixels);
 
