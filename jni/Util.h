@@ -11,7 +11,6 @@
 #include <android/log.h>
 #include <jni.h>
 #include <cstddef>
-#include <stdarg.h>
 
 #include "ColorGetter.h"
 
@@ -41,6 +40,9 @@ static inline int max(int a, int b) {
 static inline jint* getPixleArray(JNIEnv* env, jintArray buff) {
 	jint* pixelsBuff;
 	pixelsBuff = env->GetIntArrayElements(buff, false);
+	if (pixelsBuff == NULL) {
+		LOGE("can't get pixels");
+	}
 	return pixelsBuff;
 }
 
