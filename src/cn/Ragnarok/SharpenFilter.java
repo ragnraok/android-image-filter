@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.ColorMatrix;
 
 public class SharpenFilter {
 	

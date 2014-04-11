@@ -26,7 +26,7 @@
 	jint* pixelsBuff = getPixleArray(env, pixels); \
 	FilterClass filter(pixelsBuff, width, height, options); \
 	int *_result = filter.procImage(); \
-	result = jintToJintArray(env, width * height, _result); \
+	result = jintPointerToJintArray(env, width * height, _result); \
 	result; \
 })\
 
@@ -34,10 +34,9 @@
 	jint* pixelsBuff = getPixleArray(env, pixels); \
 	FilterClass filter(pixelsBuff, width, height); \
 	int *_result = filter.procImage(); \
-	result = jintToJintArray(env, width * height, _result); \
+	result = jintPointerToJintArray(env, width * height, _result); \
 	result; \
 })\
-
 
 typedef void (*GENERAL_IMG_PROC_FUNC)(int*, int, int); // pixels, width, height
 
@@ -63,7 +62,7 @@ static inline jint* getPixleArray(JNIEnv* env, jintArray buff) {
 	return pixelsBuff;
 }
 
-static inline jintArray jintToJintArray(JNIEnv* env, jint size, jint* arr) {
+static inline jintArray jintPointerToJintArray(JNIEnv* env, jint size, jint* arr) {
 	jintArray result = env->NewIntArray(size);
 	env->SetIntArrayRegion(result, 0, size, arr);
 
@@ -82,7 +81,7 @@ static inline jintArray procImage(JNIEnv* env, jintArray pixels, jint width, jin
 	}
 	procFunc(pixelsBuff, width, height);
 
-	jintArray result = jintToJintArray(env, width * height, pixelsBuff);
+	jintArray result = jintPointerToJintArray(env, width * height, pixelsBuff);
 	releaseArray(env, pixels, pixelsBuff);
 
 	return result;
