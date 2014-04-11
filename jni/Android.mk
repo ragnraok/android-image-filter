@@ -11,7 +11,8 @@ LOCAL_SRC_FILES := cn_Ragnarok_NativeFilterFunc.cpp \
 					LightFilter.cpp \
 					LomoAddBlackRound.cpp \
 					NeonFilter.cpp \
-					OilFilter.cpp
+					OilFilter.cpp \
+					SketchFilter.cpp
 
 LOCAL_LDLIBS := -lm -llog
 
