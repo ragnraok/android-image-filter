@@ -8,14 +8,13 @@
 
 #include "cn_Ragnarok_NativeFilterFunc.h"
 
+#include "Util.h"
 #include "NeonFilter.h"
 #include "OilFilter.h"
 #include "TvFilter.h"
 #include "LomoAddBlackRound.h"
 #include "SoftGlowFilter.h"
 #include "SketchFilter.h"
-
-#include "Util.h"
 #include "AverageSmoothFilter.h"
 #include "GaussianBlurFilter.h"
 #include "HDRFilter.h"
