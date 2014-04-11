@@ -18,7 +18,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_lightFilter
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    lomoAddBlckRound
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_lomoAddBlckRound
   (JNIEnv *, jclass, jintArray, jint, jint, jdouble);
@@ -26,7 +25,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_lomoAddBlckRound
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    neonFilter
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_neonFilter
   (JNIEnv *, jclass, jintArray, jint, jint, jint, jint, jint);
@@ -34,7 +32,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_neonFilter
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    oilFilter
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_oilFilter
   (JNIEnv *, jclass, jintArray, jint, jint);
@@ -42,7 +39,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_oilFilter
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc#
  * Method:    tvFilter
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_tvFilter
   (JNIEnv *, jclass, jintArray, jint, jint);
@@ -50,7 +46,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_tvFilter
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    averageSmooth
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_averageSmooth
   (JNIEnv *, jclass, jintArray, jint, jint, jint);
@@ -58,7 +53,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_averageSmooth
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    hdrFilter
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_hdrFilter
   (JNIEnv *, jclass, jintArray, jint, jint);
@@ -66,7 +60,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_hdrFilter
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    discreteGaussianBlur
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBlur
   (JNIEnv *, jclass, jintArray, jint, jint, jdouble);
@@ -74,7 +67,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_discreteGaussianBl
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    softGlow
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_softGlow
   (JNIEnv *, jclass, jintArray, jint, jint, jdouble);
@@ -82,7 +74,6 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_softGlow
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc
  * Method:    sketchFilter
- * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_sketchFilter
   (JNIEnv *, jclass, jintArray, jint, jint);
