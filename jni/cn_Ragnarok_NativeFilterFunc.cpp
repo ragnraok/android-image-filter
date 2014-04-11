@@ -81,7 +81,14 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_oilFilter(JNIEnv* env,
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_tvFilter(JNIEnv* env, jclass object,
 		jintArray pixels, jint width, jint height) {
-	jintArray result = procImage(env, pixels, width, height, tvFilter);
+	jint* pixelsBuff = getPixleArray(env, pixels);
+
+	if (pixelsBuff == NULL) {
+		LOGE("cannot get the pixels");
+	}
+	TvFilter filter = TvFilter(pixelsBuff, width, height);
+	jint *_result = filter.procImage();
+	jintArray result = jintToJintArray(env, width * height, _result);
 	return result;
 }
 
