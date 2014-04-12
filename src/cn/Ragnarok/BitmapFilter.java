@@ -49,7 +49,7 @@ public class BitmapFilter {
 		}
 		else if (styleNo == AVERAGE_BLUR_STYLE) {
 			if (options.length < 1) {
-				return BlurFilter.changeToAverageBlur(bitmap, 2);
+				return BlurFilter.changeToAverageBlur(bitmap, 5);
 			}
 			return BlurFilter.changeToAverageBlur(bitmap, (Integer)options[0]); // maskSize
 		}
@@ -104,13 +104,13 @@ public class BitmapFilter {
 		}
 		else if (styleNo == GAUSSIAN_BLUR_STYLE) {
 			if (options.length < 1) {
-				return GaussianBlurFilter.changeToGaussianBlur(bitmap, 2.0);
+				return GaussianBlurFilter.changeToGaussianBlur(bitmap, 1.2);
 			}
 			return GaussianBlurFilter.changeToGaussianBlur(bitmap, (Double)options[0]); // sigma
 		}
 		else if (styleNo == SOFT_GLOW_STYLE) {
 			if (options.length < 1) {
-				return SoftGlowFilter.softGlowFilter(bitmap, 2.0);
+				return SoftGlowFilter.softGlowFilter(bitmap, 0.6);
 			}
 			return SoftGlowFilter.softGlowFilter(bitmap, (Double)options[0]);
 		}
