@@ -7,6 +7,7 @@
 
 
 #include "HDRFilter.h"
+#include "SharpenFilter.h"
 
 int* HDRFilter::procImage() {
 	int *smoothPixels = new int[this->height * this->width];
@@ -44,6 +45,11 @@ int* HDRFilter::procImage() {
 	}
 
 	delete gaussianFilter;
+
+	SharpenFilter *sharpenFilter = new SharpenFilter(pixels, width, height);
+	pixels = sharpenFilter->procImage();
+
+	delete sharpenFilter;
 
 	return pixels;
 }

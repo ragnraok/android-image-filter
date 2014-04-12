@@ -19,6 +19,7 @@
 #include "GaussianBlurFilter.h"
 #include "HDRFilter.h"
 #include "LightFilter.h"
+#include "SharpenFilter.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jint centerX, jint centerY, jint radius) {
@@ -93,5 +94,11 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_sketchFilter(JNIEnv* env, jclass obj
 		jintArray pixels, jint width, jint height) {
 	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, SketchFilter);
 
+	return result;
+}
+
+jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_sharpenFilter(JNIEnv *env, jclass object,
+		jintArray pixels, jint width, jint height) {
+	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, SharpenFilter);
 	return result;
 }

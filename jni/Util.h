@@ -20,7 +20,7 @@
 #define	LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
 /**
- * the follow two macros only work under gcc compiler
+ * the following two macros only work under gcc compiler
  */
 #define	PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, FilterClass, options) ({\
 	jint* pixelsBuff = getPixleArray(env, pixels); \
