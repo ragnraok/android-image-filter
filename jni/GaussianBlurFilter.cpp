@@ -46,16 +46,9 @@ GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _width, int _height, Ga
 	kernelSum = sum;
 }
 
-//#define CAL_MASK_STEP(pixRow, pixCol, kernel, kernelIndex, sumR, sumG, sumB, ksize, bound) \
-//	maskY = -bound + (kernelIndex / ksize); \
-//	maskX = -bound + (kernelIndex % ksize); \
-//	color = Color(tempPixels[(pixRow + maskY) * width + pixCol + maskX]); \
-//	sumR += color.R() * kernel[index]; \
-//	sumG += color.G() * kernel[index]; \
-//	sumB += color.B() * kernel[index]; \
 
 int* GaussianBlurFilter::procImage() {
-	int ksize = sigma * 3 + 1;
+	int ksize = ceil(sigma * 3 + 1);
 	if (ksize == 1) {
 		return NULL;
 	}
@@ -65,8 +58,6 @@ int* GaussianBlurFilter::procImage() {
 	double sumR, sumG, sumB;
 	int index = 0;
 	int bound = ksize / 2;
-//	int kernelSize = ksize * ksize;
-//	int div = kernelSize * kernelSum;
 
 	long startTime = getCurrentTime();
 
@@ -90,7 +81,7 @@ int* GaussianBlurFilter::procImage() {
 
 	long endTime = getCurrentTime();
 
-	LOGI("guassian blur use %ld ms", endTime - startTime);
+	LOGI("guassian blur use %ld ms, maskSize: %d, sigma: %f", endTime - startTime, ksize, sigma);
 
 	delete [] tempPixels;
 
