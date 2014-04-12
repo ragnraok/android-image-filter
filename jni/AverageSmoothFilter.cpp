@@ -14,6 +14,11 @@ AverageSmoothFilter::AverageSmoothFilter(int *_pixels, int _width, int _height, 
 
 }
 
+AverageSmoothFilter::AverageSmoothFilter(int* pixels, int width, int height):
+	ImageFilter(pixels, width, height) {
+	maskSize = 5;
+}
+
 int* AverageSmoothFilter::procImage() {
 	int sumR = 0;
 	int sumG = 0;

@@ -14,4 +14,5 @@ public class NativeFilterFunc {
 	public static native int[] softGlow(int[] pixels, int width, int height, double blurSigma);
 	public static native int[] sketchFilter(int[] pixels, int width, int height);
 	public static native int[] sharpenFilter(int[] pixels, int width, int height);
+	public static native int[] reliefFilter(int[] pixels, int width, int height);
 }

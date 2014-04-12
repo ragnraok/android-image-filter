@@ -14,7 +14,8 @@ LOCAL_SRC_FILES := cn_Ragnarok_NativeFilterFunc.cpp \
 					OilFilter.cpp \
 					SketchFilter.cpp \
 					TvFilter.cpp \
-					SharpenFilter.cpp
+					SharpenFilter.cpp \
+					ReliefFilter.cpp
 
 LOCAL_LDLIBS := -lm -llog
 

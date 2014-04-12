@@ -20,7 +20,8 @@ typedef struct _averageSmoothOptions {
 
 class AverageSmoothFilter : public ImageFilter {
 public:
-	AverageSmoothFilter(int *_pixels, int _height, int _width, AverageSmoothOptions options);
+	AverageSmoothFilter(int *pixels, int width, int height);
+	AverageSmoothFilter(int *_pixels, int _width, int _height, AverageSmoothOptions options);
 	virtual ~AverageSmoothFilter() {};
 	int* procImage();
 private:

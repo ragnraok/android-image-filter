@@ -17,6 +17,7 @@ public:
 	SharpenFilter(int *pixels, int width, int height);
 	~SharpenFilter();
 	int* procImage();
+	int* highBoostSharpen();
 };
 
 

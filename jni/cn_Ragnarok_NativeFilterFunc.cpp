@@ -20,6 +20,7 @@
 #include "HDRFilter.h"
 #include "LightFilter.h"
 #include "SharpenFilter.h"
+#include "ReliefFilter.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jint centerX, jint centerY, jint radius) {
@@ -100,5 +101,11 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_sketchFilter(JNIEnv* env, jclass obj
 jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_sharpenFilter(JNIEnv *env, jclass object,
 		jintArray pixels, jint width, jint height) {
 	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, SharpenFilter);
+	return result;
+}
+
+jintArray Java_cn_Ragnarok_NativeFilterFunc_reliefFilter(JNIEnv* env, jclass object,
+		jintArray pixels, jint width, jint height) {
+	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, ReliefFilter);
 	return result;
 }

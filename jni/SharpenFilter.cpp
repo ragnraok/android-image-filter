@@ -6,7 +6,11 @@
  */
 
 
+#include <stdlib.h>
+#include <string.h>
+
 #include "SharpenFilter.h"
+#include "AverageSmoothFilter.h"
 
 SharpenFilter::SharpenFilter(int *pixels, int width, int height):
 	ImageFilter(pixels, width, height) {
@@ -67,3 +71,35 @@ int* SharpenFilter::procImage() {
 	return pixels;
 }
 
+int* SharpenFilter::highBoostSharpen() {
+	int boostFactor = 1;
+	int *blurPixels = new int[width * height];
+	memcpy(blurPixels, pixels, width * height * sizeof(int));
+
+	AverageSmoothFilter *smoothFilter = new AverageSmoothFilter(blurPixels, width, height);
+	blurPixels = smoothFilter->procImage();
+
+	int *edgePixels = new int[width * height];
+	for (int i = 0; i < width * height; i++) {
+		Color pixColor(pixels[i]);
+		Color blurColor(blurPixels[i]);
+		int edgeR = min(255, max(0, pixColor.R() - blurColor.R()));
+		int edgeG = min(255, max(0, pixColor.G() - blurColor.G()));
+		int edgeB = min(255, max(0, pixColor.B() - blurColor.B()));
+		edgePixels[i] = RGB2Color(edgeR, edgeG, edgeB);
+	}
+
+	for (int i = 0; i < width * height; i++) {
+		Color pixColor(pixels[i]);
+		Color edgeColor(edgePixels[i]);
+		int r = min(255, max(0, pixColor.R() + boostFactor * edgeColor.R()));
+		int g = min(255, max(0, pixColor.G() + boostFactor * edgeColor.G()));
+		int b = min(255, max(0, pixColor.B() + boostFactor * edgeColor.B()));
+		pixels[i] = RGB2Color(r, g, b);
+	}
+
+	delete smoothFilter;
+	delete [] edgePixels;
+
+	return pixels;
+}
