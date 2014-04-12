@@ -37,8 +37,7 @@ int* AverageSmoothFilter::procImage() {
 					sumB += color.B();
 				}
 			}
-			pixels[row * width + col] = RGB2Color(sumR / div, sumG / div,
-					sumB / div);
+			pixels[row * width + col] = RGB2Color(sumR / div, sumG / div, sumB / div);
 		}
 	}
 

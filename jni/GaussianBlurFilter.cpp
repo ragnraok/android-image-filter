@@ -5,16 +5,19 @@
  *      Author: ragnarok
  */
 
+#include <math.h>
+#include <stdio.h>
 
 #include "GaussianBlurFilter.h"
-#include <math.h>
+
 
 GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _width, int _height, GaussianBlurOptions options):
 	ImageFilter(_pixels, _width, _height),
-	sigma(options.sigma) {
+	sigma(options.sigma),
+	kernelSum(0) {
 
 	// pre-calculate kernel
-	int ksize = sigma * 3 + 1;
+	int ksize = ceil(sigma * 3 + 1);
 	if (ksize == 1) {
 		return;
 	}
@@ -33,13 +36,23 @@ GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _width, int _height, Ga
 			sum += kernel[i * ksize + j];
 		}
 	}
+
 	// normalize
 	for (int i = 0; i < ksize; i++) {
 		for (int j = 0; j < ksize; j++) {
 			kernel[i * ksize + j] /= sum;
 		}
 	}
+	kernelSum = sum;
 }
+
+//#define CAL_MASK_STEP(pixRow, pixCol, kernel, kernelIndex, sumR, sumG, sumB, ksize, bound) \
+//	maskY = -bound + (kernelIndex / ksize); \
+//	maskX = -bound + (kernelIndex % ksize); \
+//	color = Color(tempPixels[(pixRow + maskY) * width + pixCol + maskX]); \
+//	sumR += color.R() * kernel[index]; \
+//	sumG += color.G() * kernel[index]; \
+//	sumB += color.B() * kernel[index]; \
 
 int* GaussianBlurFilter::procImage() {
 	int ksize = sigma * 3 + 1;
@@ -52,6 +65,10 @@ int* GaussianBlurFilter::procImage() {
 	double sumR, sumG, sumB;
 	int index = 0;
 	int bound = ksize / 2;
+//	int kernelSize = ksize * ksize;
+//	int div = kernelSize * kernelSum;
+
+	long startTime = getCurrentTime();
 
 	for (int row = bound; row < height - bound; row++) {
 		for (int col = bound; col < width - bound; col++) {
@@ -60,7 +77,6 @@ int* GaussianBlurFilter::procImage() {
 			for (int i = -bound; i <= bound; i++) {
 				for (int j = -bound; j <= bound; j++) {
 					Color color(tempPixels[(row + i) * width + col + j]);
-					//sumA += color.alpha() * mask[index];
 					sumR += color.R() * kernel[index];
 					sumG += color.G() * kernel[index];
 					sumB += color.B() * kernel[index];
@@ -68,12 +84,15 @@ int* GaussianBlurFilter::procImage() {
 				}
 			}
 
-			pixels[row * width + col] = RGB2Color(int(sumR), int(sumG),
-					int(sumB));
+			pixels[row * width + col] = RGB2Color(int(sumR), int(sumG), int(sumB));
 		}
 	}
 
-	delete[] tempPixels;
+	long endTime = getCurrentTime();
+
+	LOGI("guassian blur use %ld ms", endTime - startTime);
+
+	delete [] tempPixels;
 
 	return this->pixels;
 }

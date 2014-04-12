@@ -11,6 +11,7 @@
 #include <android/log.h>
 #include <jni.h>
 #include <stddef.h>
+#include <sys/time.h>
 
 #include "ColorGetter.h"
 
@@ -93,6 +94,12 @@ static inline void changeImageToGray(int* pixels, int width, int height) {
 		float gray = color.R() * 0.3 + color.G() * 0.59 + color.B() * 0.11;
 		pixels[i] = RGB2Color(gray, gray, gray);
 	}
+}
+
+static inline long getCurrentTime() {
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
 
 #endif /* UTIL_H_ */

@@ -30,6 +30,7 @@ public:
 private:
 	double sigma;
 	double *kernel;
+	int kernelSum;
 };
 
 

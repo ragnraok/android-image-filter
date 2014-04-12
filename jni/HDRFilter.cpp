@@ -13,7 +13,7 @@ int* HDRFilter::procImage() {
 	int *smoothPixels = new int[this->height * this->width];
 	memcpy(smoothPixels, this->pixels, width * height * sizeof(int));
 
-	GaussianBlurFilter *gaussianFilter = new GaussianBlurFilter(smoothPixels, width, height, 2.0);
+	GaussianBlurFilter *gaussianFilter = new GaussianBlurFilter(smoothPixels, width, height, 0.6);
 	smoothPixels = gaussianFilter->procImage();
 
 	double newR = 0, newG = 0, newB = 0;
