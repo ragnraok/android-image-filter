@@ -8,6 +8,9 @@
 #ifndef COLORGETTER_H_
 #define COLORGETTER_H_
 
+#define COLOR_UPPER_BOUND 255.0
+#define COLOR_LOWER_BOUND 0.0
+
 static inline int ARGB2Color(int alpha, int r, int g, int b) {
 	return alpha << 24 | r << 16 | g << 8 | b;
 }
