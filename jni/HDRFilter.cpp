@@ -7,14 +7,19 @@
 
 
 #include "HDRFilter.h"
+#include "GaussianBlurFilter.h"
+//#include "AverageSmoothFilter.h"
 #include "SharpenFilter.h"
 
 int* HDRFilter::procImage() {
 	int *smoothPixels = new int[this->height * this->width];
 	memcpy(smoothPixels, this->pixels, width * height * sizeof(int));
 
-	GaussianBlurFilter *gaussianFilter = new GaussianBlurFilter(smoothPixels, width, height, 0.6);
-	smoothPixels = gaussianFilter->procImage();
+	GaussianBlurFilter *blurFilter = new GaussianBlurFilter(smoothPixels, width, height, 0.6);
+	smoothPixels = blurFilter->procImage();
+
+//	AverageSmoothFilter *blurFilter = new AverageSmoothFilter(smoothPixels, width, height);
+//	smoothPixels = blurFilter->procImage();
 
 	double newR = 0, newG = 0, newB = 0;
 	double blurA = 0;
@@ -44,7 +49,7 @@ int* HDRFilter::procImage() {
 		}
 	}
 
-	delete gaussianFilter;
+	delete blurFilter;
 
 	SharpenFilter *sharpenFilter = new SharpenFilter(pixels, width, height);
 	pixels = sharpenFilter->procImage();

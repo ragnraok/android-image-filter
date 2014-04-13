@@ -22,6 +22,7 @@
 #include "SharpenFilter.h"
 #include "ReliefFilter.h"
 #include "PixelateFilter.h"
+#include "BlockFilter.h"
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_lightFilter(JNIEnv* env,
 		jclass object, jintArray pixels, jint width, jint height, jint centerX, jint centerY, jint radius) {
@@ -115,5 +116,11 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_pxelateFilter(JNIEnv* env, jclass ob
 		jintArray pixels, jint width, jint height, jint pixelSize) {
 	PixelateOptions options(pixelSize);
 	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, PixelateFilter, options);
+	return result;
+}
+
+jintArray Java_cn_Ragnarok_NativeFilterFunc_blockFilter(JNIEnv* env, jclass object,
+		jintArray pixels, jint width, jint height) {
+	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, BlockFilter);
 	return result;
 }

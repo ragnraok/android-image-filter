@@ -10,6 +10,8 @@
 
 #include <string.h>
 
+#include "Util.h"
+
 /*
  * base Filter class
  */

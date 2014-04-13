@@ -31,6 +31,7 @@ private:
 	double sigma;
 	double *kernel;
 	int kernelSum;
+	int maskSize;
 };
 
 

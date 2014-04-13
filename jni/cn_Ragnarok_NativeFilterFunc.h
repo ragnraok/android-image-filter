@@ -111,6 +111,14 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_reliefFilter
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_pxelateFilter
   (JNIEnv *, jclass, jintArray, jint, jint, jint);
 
+/*
+ * Class:     cn_Ragnarok_NativeFilterFunc
+ * Method:    blockFilter
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_blockFilter
+  (JNIEnv *, jclass, jintArray, jint, jint);
+
 #ifdef __cplusplus
 }
 #endif

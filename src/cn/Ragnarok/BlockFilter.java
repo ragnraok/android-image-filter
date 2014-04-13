@@ -5,29 +5,22 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class BlockFilter {
-	public static Bitmap changeToBrick(Bitmap mBitmap) {		     
-		 int width = mBitmap.getWidth();
-		 int height = mBitmap.getHeight();
-		 
-		 Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888); 
-		 
-		 int iPixel = 0;
-		 for (int i = 0; i < width; i++) {
-		       for (int j = 0;  j < height; j++) {
-		         int currColor = mBitmap.getPixel(i,j);
-		         
-		         int avg = (Color.red(currColor) + Color.green(currColor) + Color.blue(currColor)) / 3;
-		         if(avg >= 100)
-		         {
-		             iPixel = 255;    
-		         } 
-		         else {
-		        	 iPixel = 0;
-		         }            
-		         returnBitmap.setPixel(i, j, Color.argb(255, iPixel, iPixel, iPixel));
-		     }
-		 }
-	   
-		 return returnBitmap;
+	
+	static {
+		System.loadLibrary("AndroidImageFilter");
+	}
+	
+	public static Bitmap changeToBrick(Bitmap bitmap) {
+		int width = bitmap.getWidth();
+		int height = bitmap.getHeight();
+		
+		int[] pixels = new int[width * height];
+		bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+		
+		Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+		int[] returnPixels = NativeFilterFunc.blockFilter(pixels, width, height);
+		returnBitmap.setPixels(returnPixels, 0, width, 0, 0, width, height);
+		
+		return returnBitmap;
 	}
 }

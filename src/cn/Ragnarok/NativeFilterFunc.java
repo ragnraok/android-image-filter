@@ -16,4 +16,5 @@ public class NativeFilterFunc {
 	public static native int[] sharpenFilter(int[] pixels, int width, int height);
 	public static native int[] reliefFilter(int[] pixels, int width, int height);
 	public static native int[] pxelateFilter(int[] pixels, int width, int height, int pixelSize);
+	public static native int[] blockFilter(int[] pixels, int width, int height);
 }

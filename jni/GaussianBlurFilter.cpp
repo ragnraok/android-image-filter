@@ -21,6 +21,7 @@ GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _width, int _height, Ga
 	if (ksize == 1) {
 		return;
 	}
+	maskSize = ksize;
 	this->kernel = new double[ksize * ksize];
 	double scale = -0.5 / (sigma * sigma);
 	double PI = 3.141592653;
@@ -48,16 +49,15 @@ GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _width, int _height, Ga
 
 
 int* GaussianBlurFilter::procImage() {
-	int ksize = ceil(sigma * 3 + 1);
-	if (ksize == 1) {
+	if (maskSize == 1) {
 		return NULL;
 	}
 	int* tempPixels = new int[width * height];
 	memcpy(tempPixels, pixels, width * height * sizeof(int));
 
-	double sumR, sumG, sumB;
+	double sumR = 0, sumG = 0, sumB = 0;
 	int index = 0;
-	int bound = ksize / 2;
+	int bound = maskSize / 2;
 
 	long startTime = getCurrentTime();
 
@@ -81,7 +81,7 @@ int* GaussianBlurFilter::procImage() {
 
 	long endTime = getCurrentTime();
 
-	LOGI("guassian blur use %ld ms, maskSize: %d, sigma: %f", endTime - startTime, ksize, sigma);
+	LOGI("guassian blur use %ld ms, maskSize: %d, sigma: %f", endTime - startTime, maskSize, sigma);
 
 	delete [] tempPixels;
 
