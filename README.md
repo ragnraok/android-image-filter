@@ -90,7 +90,7 @@ You can see all filters in file [BitmapFilter.java][3], currently contains total
 	BitmapFilter.changeStyle(originBitmap, BitmapFilter.SOFT_GLOW_STYLE, sigma);
 	```
 	
-	``sigma`` is a double, the same as ``sigma`` in Gaussian Blur, indicate the sigma value in the Gaussian Blur process of Soft Glow
+	``sigma`` is a double, the same as ``sigma`` in Gaussian Blur, indicate the sigma value in the process of Gaussian Blur for Soft Glow
 
 * Sketch
 * Motion Blur
