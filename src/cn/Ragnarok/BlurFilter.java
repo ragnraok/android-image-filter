@@ -21,12 +21,11 @@ public class BlurFilter {
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();
 		
-		Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		int[] pixels = new int[width * height];
 		bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
 		
 		int[] returnPixels = NativeFilterFunc.averageSmooth(pixels, width, height, maskSize);
-		returnBitmap.setPixels(returnPixels, 0, width, 0, 0, width, height);
+		Bitmap returnBitmap = Bitmap.createBitmap(returnPixels, width, height, Bitmap.Config.ARGB_8888);
 		
 		return returnBitmap;
 	}

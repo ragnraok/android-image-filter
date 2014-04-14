@@ -8,8 +8,7 @@ public class OldFilter {
 	public static Bitmap changeToOld(Bitmap bitmap) {
 		
         int width = bitmap.getWidth();  
-        int height = bitmap.getHeight();  
-        Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);  
+        int height = bitmap.getHeight();    
         int pixColor = 0;  
         int pixR = 0;  
         int pixG = 0;  
@@ -35,7 +34,7 @@ public class OldFilter {
             }  
         }  
           
-        returnBitmap.setPixels(pixels, 0, width, 0, 0, width, height);  
+        Bitmap returnBitmap = Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
         return returnBitmap;
 	}
 }
