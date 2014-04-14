@@ -6,3 +6,5 @@ library/gen
 library/obj
 demo/bin
 demo/gen
+demoKey
+AndroidImageFilterDemo.apk

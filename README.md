@@ -3,13 +3,14 @@ android-image-filter
 
 some android image filters
 
-in some filter, I use NDK to implement it
+in some filter, I use NDK to implement to make it more efficient
 
 # Setup
 
 - Install Android NDK and properly configure it: [http://goo.gl/koTCb](http://goo.gl/koTCb)
-- Get a clean clone of this project, import the library in Ecliplse, click Project->Clean, then click Project->Build Project
-to regenerate the library
+- Get a clean clone of this project, import the library in Eclipse
+- right click the Project in Eclipse, and select properties->C/C++ Build, set the "Build Command" for the path of your "ndk-build" program
+- then Clean and Build the hold project to regenerate the library
 - Then just add AndroidImageFilter as a dependency to your existing project.
 
 # How to Use it
@@ -18,13 +19,91 @@ to regenerate the library
 
 ```Java
   Bitmap newBitmap = BitmapFilter.changeStyle(originBitmap, BitmapFilter.BLUR_STYLE);
-  imageView.setImageBitmap(newBitmap);
+  imageView.setImageBitmap(newBitmap);        
 ```
 
-it is very simple, right? And you can see all filters in file [/src/cn/Ragnarok/BitmapFilter.java][3], it contains totally
-17 kinds of filters now!
+and there are some options for the filter, you can go to see the demo to see how to use this options to customize your filter effect
 
-- Also, you can download the demo app from this [link][1]
+You can see all filters in file [BitmapFilter.java][3], currently contains totally 18 kinds of filters now, here is the list of filters and their options(show by code):
+
+* Grayscale
+* Relief
+* Blur(Average Smooth)
+
+	```Java
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.BLUR_STYLE, maskSize);
+	```
+	
+``maskSize`` is a integer, to indicate the average blur mask's size
+	
+* Oil Painting
+* Neon
+	
+	```Java
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.NEON_STYLE, 
+	neon_color_R, neon_color_G, neon_color_B);	
+	```
+
+``neon_color_R``, ``neon_color_G``, ``neon_color_B`` are the R,G,B component are integer	
+	
+* Pixelate
+	
+	```Java 
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.PIXELATE_STYLE, pixelSize);
+	```
+	
+``pixelSize`` is a integer, the pixel size for this filter
+	
+* Old TV
+* Invert Color
+* Block
+* Old Photo
+* Sharpen(By Laplacian)
+* Light
+	
+	```Java 
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.LIGHT_STYLE, light_center_x, light_center_y, light_radius);
+	```
+	
+``light_center_x``, ``light_center_y`` are integer, indicate the center of the light spot, the origin in the left-upper side, and the ``light_radius`` is indicate the radius of light spot, in pixel
+
+* Lomo
+	
+	```Java
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.LOMO_STYLE, roundRadius);
+	```
+
+``roundRadius`` is a integer, the black round's radius in the effect	
+
+* HDR
+* Gaussian Blur
+
+	```Java
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.GAUSSIAN_BLUR_STYLE, sigma);
+	```
+	
+	``sigma`` is a double, the sigma value in Gaussian Blur, the bigger of sigma, the smoother in the result image
+
+* Soft Glow
+
+	```Java
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.SOFT_GLOW_STYLE, sigma);
+	```
+	
+	``sigma`` is a double, the same as ``sigma`` in Gaussian Blur, indicate the sigma value in the Gaussian Blur process of Soft Glow
+
+* Sketch
+* Motion Blur
+
+	```Java
+	BitmapFilter.changeStyle(originBitmap, BitmapFilter.SOFT_GLOW_STYLE, xSpeed, ySpeed);
+	```
+	``xSpeed`` and ``ySpeed`` are both integer, indicate the speed in x-axis and y-axis, the origin in the left-upper side
+
+ 
+
+
+Also, you can download the demo app from this [link][1]
 
 
 If you have any question, please open an [issue][4] and show your code and the program ouput, thanks!
@@ -33,7 +112,7 @@ If you have any question, please open an [issue][4] and show your code and the p
  
 # The MIT License (MIT)
 
-Copyright (c) \<2012-2013\>  \<ragnarok okone1288@gmail.com\>
+Copyright (c) \<2012-2014\>  \<ragnarok okone1288@gmail.com\>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -53,8 +132,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-[1]: https://s.yunio.com/6bE4ny
-[2]: http://i46.tinypic.com/263hff8.jpg
-[3]: https://github.com/ragnraok/android-image-filter/blob/master/src/cn/Ragnarok/BitmapFilter.java
+[1]: http://d.pr/f/VjyS
+[2]: screenshot/img1.png
+[3]: library/src/cn/Ragnarok/BitmapFilter.java
 [4]: https://github.com/ragnraok/android-image-filter/issues?state=open
 
