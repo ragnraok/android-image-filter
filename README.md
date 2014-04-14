@@ -14,8 +14,7 @@ in some filter, I use NDK to implement to make it more efficient
 - Then just add AndroidImageFilter as a dependency to your existing project.
 
 # How to Use it
-
-- It is dead simple, you can see magic in the following code:
+It is dead simple, you can see magic in the following code:
 
 ```Java
   Bitmap newBitmap = BitmapFilter.changeStyle(originBitmap, BitmapFilter.BLUR_STYLE);
