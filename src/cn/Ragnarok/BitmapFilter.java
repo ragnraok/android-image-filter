@@ -1,15 +1,6 @@
 package cn.Ragnarok;
 
-import java.util.Random;
-
-import android.R.style;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
-
 
 public class BitmapFilter {
 	/**
@@ -128,20 +119,3 @@ public class BitmapFilter {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
