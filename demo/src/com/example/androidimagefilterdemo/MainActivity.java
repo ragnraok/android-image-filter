@@ -44,7 +44,6 @@ import cn.Ragnarok.BitmapFilter;
 public class MainActivity extends Activity implements OnClickListener, OnItemClickListener {
 	
 	private ListView listView;
-	private View selectView;
 	private Button changeStyleButton;
 	private Button restoreButton;
 	private ImageView imageView;
