@@ -100,7 +100,7 @@ You can see all filters in file [BitmapFilter.java][3], currently contains total
 	```
 	``xSpeed`` and ``ySpeed`` are both integer, indicate the speed in x-axis and y-axis, the origin in the left-upper side
 
- 
+PS: all options have defalut values, so you can just select the effect and pass nothing
 
 
 Also, you can download the demo app from this [link][1]
