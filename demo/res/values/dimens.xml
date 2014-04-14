@@ -1,0 +1,8 @@
+<resources>
+
+    <dimen name="slidingmenu_offset">130dp</dimen>
+    <dimen name="shadow_width">15dp</dimen>
+
+    <integer name="num_cols">1</integer>
+
+</resources>

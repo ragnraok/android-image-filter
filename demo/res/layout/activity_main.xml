@@ -1,0 +1,64 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout">
+
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:id="@+id/main_layout">
+
+	    <ImageView
+	        android:id="@+id/image"
+	        android:layout_width="250dp"
+	        android:layout_height="250dp"
+	        android:layout_centerHorizontal="true"
+	        android:layout_margin="20dp" />
+
+	    <Button
+	        android:id="@+id/button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/image"
+	        android:layout_centerInParent="true"
+	        android:padding="10dp"
+	        android:text="@string/select_image" />
+
+	    <Button
+	        android:id="@+id/button_restore"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/button"
+	        android:layout_centerInParent="true"
+	        android:padding="10dp"
+	        android:text="@string/restore" />
+	    
+	    <LinearLayout 
+	        android:id="@+id/image_info"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:layout_centerVertical="true"
+	        android:visibility="invisible"
+	        android:layout_below="@id/button_restore">
+	        <TextView android:id="@+id/image_width"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Width:123123"
+	            android:layout_gravity="center"/>
+	        <TextView android:id="@+id/image_height"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Height: 123123"
+	            android:layout_gravity="center"/>
+	        
+	    </LinearLayout>
+	</RelativeLayout>
+	
+	<ListView android:id="@+id/filter_select"
+	    android:layout_width="250dp"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="start"
+	    android:background="@android:color/white"/>
+
+</android.support.v4.widget.DrawerLayout>

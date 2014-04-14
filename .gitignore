@@ -1,6 +1,8 @@
-obj/
-gen/
-bin/
 .DS_Store
 .settings/
 genJniHeader
+library/bin
+library/gen
+library/obj
+demo/bin
+demo/gen
