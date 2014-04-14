@@ -11,7 +11,7 @@
 #include "ImageFilter.h"
 #include "Util.h"
 
-#define DELAY 1
+#define DELAY 2
 
 typedef struct _motionBlurFilterOptions {
 	_motionBlurFilterOptions(int x, int y) {
