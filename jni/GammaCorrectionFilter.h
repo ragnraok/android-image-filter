@@ -28,7 +28,7 @@ public:
 	int* procImage();
 private:
 	double gamma;
-	double gammaTable[GAMMA_TABLE_SIZE];
+	double gammaTable[GAMMA_TABLE_SIZE]; // the gamma lookup table
 	void initGammaTable();
 };
 

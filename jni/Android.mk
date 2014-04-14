@@ -18,7 +18,8 @@ LOCAL_SRC_FILES := cn_Ragnarok_NativeFilterFunc.cpp \
 					ReliefFilter.cpp \
 					PixelateFilter.cpp \
 					BlockFilter.cpp \
-					GammaCorrectionFilter.cpp
+					GammaCorrectionFilter.cpp \
+					MotionBlurFilter.cpp
 
 LOCAL_LDLIBS := -lm -llog
 

@@ -32,8 +32,9 @@ public class BitmapFilter {
 	public static final int GAUSSIAN_BLUR_STYLE = 15; // gaussian blur
 	public static final int SOFT_GLOW_STYLE = 16; // soft glow
 	public static final int SKETCH_STYLE = 17; // sketch style
+	public static final int MOTION_BLUR_STYLE = 18; // motion blur
 	
-	public static final int TOTAL_FILTER_NUM = SKETCH_STYLE;
+	public static final int TOTAL_FILTER_NUM = MOTION_BLUR_STYLE;
 	
 	/**
 	 * change bitmap filter style
@@ -116,6 +117,12 @@ public class BitmapFilter {
 		}
 		else if (styleNo == SKETCH_STYLE) {
 			return SketchFilter.changeToSketch(bitmap);
+		} 
+		else if (styleNo == MOTION_BLUR_STYLE) {
+			if (options.length < 2) {
+				return MotionBlurFilter.changeToMotionBlur(bitmap, 5, 1);
+			}
+			return MotionBlurFilter.changeToMotionBlur(bitmap, (Integer)options[0], (Integer)options[1]);
 		}
 		return bitmap;
 	}

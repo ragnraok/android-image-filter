@@ -1,7 +1,5 @@
 package cn.Ragnarok;
 
-import android.R.integer;
-
 public class NativeFilterFunc {
 	public static native int[] lightFilter(int[] pixels, int width, int height, int centerX, int centerY, int radius);
 	public static native int[] lomoAddBlckRound(int[] pixels, int width, int height, double roundRadius);
@@ -17,4 +15,5 @@ public class NativeFilterFunc {
 	public static native int[] reliefFilter(int[] pixels, int width, int height);
 	public static native int[] pxelateFilter(int[] pixels, int width, int height, int pixelSize);
 	public static native int[] blockFilter(int[] pixels, int width, int height);
+	public static native int[] motionBlurFilter(int[] pixels, int width, int height, int xSpeed, int ySpeed);
 }
