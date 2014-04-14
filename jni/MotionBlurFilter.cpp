@@ -71,6 +71,8 @@ int* MotionBlurFilter::procImage() {
 						}
 						int finalXCoord = xSpeed > 0 ? x - xOff * DELAY + t : x + xOff * DELAY + t;
 						int finalYCoord = ySpeed > 0 ? y - yOff * DELAY + t : y + yOff * DELAY + t;
+						finalXCoord = min(width - 1, max(finalXCoord, 0));
+						finalYCoord = min(height - 1, max(finalYCoord, 0));
 						Color color(originPixels[finalYCoord * width + finalXCoord]);
 						sumR += color.R();
 						sumG += color.G();
