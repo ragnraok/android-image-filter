@@ -73,7 +73,7 @@ You can see all filters in file [BitmapFilter.java][3], currently contains total
 	BitmapFilter.changeStyle(originBitmap, BitmapFilter.LOMO_STYLE, roundRadius);
 	```
 
-``roundRadius`` is a integer, the black round's radius in the effect	
+``roundRadius`` is a double, the black round's radius in the effect	
 
 * HDR
 * Gaussian Blur
