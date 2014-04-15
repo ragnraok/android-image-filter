@@ -6,11 +6,13 @@
  */
 
 #include <time.h>
+#include <string.h>
+
 #include "OilFilter.h"
 
 OilFilter::OilFilter(int* pixels, int width, int height):
 	ImageFilter(pixels, width, height) {
-	model = 8;
+	model = 10;
 }
 
 int* OilFilter::procImage() {
@@ -20,13 +22,8 @@ int* OilFilter::procImage() {
 	srand(time(NULL));
 
 	int i, j, originI, originJ;
-	if (width > height) {
-		i = width - model - 1;
-		j = height - model - 1;
-	} else {
-		i = height - model - 1;
-		j = width - model - 1;
-	}
+	i = height - model - 1;
+	j = width - model - 1;
 	originI = i;
 	originJ = j;
 
@@ -37,7 +34,10 @@ int* OilFilter::procImage() {
 			int otherPos = (i + pos) * width + j + pos;
 			if (otherPos < width * height) {
 				unsigned color = originPixels[otherPos];
-				pixels[i * width + j] = color;
+				if (i * width + j < width * height)  {
+					pixels[i * width + j] = color;
+				}
+
 			}
 			j--;
 
