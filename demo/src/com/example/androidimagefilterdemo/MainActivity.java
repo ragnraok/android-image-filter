@@ -52,7 +52,8 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 	private TextView imageHeightTextView;
 	
 	private Bitmap originBitmap = null;
-	private static final int PHOTO_SIZE = 1024;
+	private static final int PHOTO_SIZE_WIDTH = 1500;
+	private static final int PHOTO_SIZE_HEIGHT = 1024;
 	private File tempFile = new File("/sdcard/.a.jpg");
 	
 	private ProgressDialog progressDialog;
@@ -214,10 +215,10 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 			intent.setType("image/*");
 			intent.putExtra("output", Uri.fromFile(tempFile));
 			intent.putExtra("crop", "true");
-			intent.putExtra("aspectX", 1);
-			intent.putExtra("aspectY", 1);
-			intent.putExtra("outputX", PHOTO_SIZE);
-			intent.putExtra("outputY", PHOTO_SIZE);
+//			intent.putExtra("aspectX", 1);
+//			intent.putExtra("aspectY", 1);
+//			intent.putExtra("outputX", PHOTO_SIZE_WIDTH);
+//			intent.putExtra("outputY", PHOTO_SIZE_HEIGHT);
 			startActivityForResult(intent, 1);
 		}
 		else if (v.getId() == R.id.button_restore) {
