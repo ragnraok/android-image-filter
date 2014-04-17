@@ -57,6 +57,20 @@ static inline int max(int a, int b) {
 	return b;
 }
 
+static inline double min(double a, double b) {
+	if (a < b) {
+		return a;
+	}
+	return b;
+}
+
+static inline double max(double a, double b) {
+	if (a > b) {
+		return a;
+	}
+	return b;
+}
+
 static inline jint* getPixleArray(JNIEnv* env, jintArray buff) {
 	jint* pixelsBuff = env->GetIntArrayElements(buff, (jboolean*)false);
 	if (pixelsBuff == NULL) {

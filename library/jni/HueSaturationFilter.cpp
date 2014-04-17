@@ -23,7 +23,7 @@ int* HueSaturationFilter::setHue(double hue) {
 		HSI hsi = ColorTranslator::RGB2HSI(color.R(), color.G(), color.B());
 		double h = hsi.h;
 		h = hue;
-		h = min(360, max(0, h));
+		h = min(360.0, max(0.0, h));
 		RGB rgb = ColorTranslator::HSI2RGB(h, hsi.s, hsi.i);
 		pixels[i] = RGB2Color(rgb.r, rgb.g, rgb.b);
 	}

@@ -82,9 +82,9 @@ int* MotionBlurFilter::procImage() {
 				sumR /= float(absXSpeed * absYSpeed);
 				sumG /= float(absXSpeed * absYSpeed);
 				sumB /= float(absXSpeed * absYSpeed);
-				sumR = min(255, max(sumR, 0));
-				sumG = min(255, max(sumG, 0));
-				sumB = min(255, max(sumB, 0));
+				sumR = min(255, max(int(sumR), 0));
+				sumG = min(255, max(int(sumG), 0));
+				sumB = min(255, max(int(sumB), 0));
 				pixels[(y + t) * width + x + t] = RGB2Color((int)sumR, (int)sumG, (int)sumB);
 			}
 		}

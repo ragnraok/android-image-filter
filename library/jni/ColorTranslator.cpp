@@ -18,6 +18,7 @@ HSI ColorTranslator::RGB2HSI(double r, double g, double b) { // 0 ~ 255
 	double theta = acos(
 			((r - g) + (r - b)) * 0.5
 					/ pow((pow((r - g), 2) + (r - b) * (g - b)), 0.5));
+	theta = theta * 180 / PI;
 	double h;
 	if (b <= g) {
 		h = theta;
@@ -37,23 +38,24 @@ HSI ColorTranslator::RGB2HSI(double r, double g, double b) { // 0 ~ 255
 
 RGB ColorTranslator::HSI2RGB(double h, double s, double i) {
 	double r, g, b;
-	if (h >= 0 && h < 120) {
+	if (h >= 0 && h < 120.0) {
 		b = i * (1 - s);
 		r = i * (1 + (s * cos(h * PI / 180.0)) / (cos((60 - h) * PI / 180.0)));
 		g = 3 * i - (r + b);
 		return RGB(int(r * COLOR_UPPER_BOUND), int(g * COLOR_UPPER_BOUND), int(b * COLOR_UPPER_BOUND));
-	} else if (h >= 120 && h < 240) {
+	} else if (h >= 120.0 && h < 240.0) {
 		h = h - 120;
 		r = i * (1 - s);
 		g = i * (1 + (s * cos(h * PI / 180.0)) / (cos((60 - h) * PI / 180.0)));
 		b = 3 * i - (r + g);
 		return RGB(int(r * COLOR_UPPER_BOUND), int(g * COLOR_UPPER_BOUND), int(b * COLOR_UPPER_BOUND));
-	} else if (h >= 240 && h <= 360) {
+	} else if (h >= 240.0 && h <= 360.0) {
 		h = h - 240;
 		g = i * (1 - s);
 		b = i * (1 + (s * cos(h * PI / 180.0)) / (cos((60 - h) * PI / 180.0)));
 		r = 3 * i - (g + b);
 		return RGB(int(r * COLOR_UPPER_BOUND), int(g * COLOR_UPPER_BOUND), int(b * COLOR_UPPER_BOUND));
 	}
+	//LOGE("HSI2RGB, rgb is -1");
 	return RGB(-1, -1, -1);
 }
