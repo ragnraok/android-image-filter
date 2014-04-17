@@ -24,7 +24,6 @@ GaussianBlurFilter::GaussianBlurFilter(int *_pixels, int _width, int _height, Ga
 	maskSize = ksize;
 	this->kernel = new double[ksize * ksize];
 	double scale = -0.5 / (sigma * sigma);
-	double PI = 3.141592653;
 	double cons = -scale / PI;
 	double sum = 0;
 
