@@ -33,6 +33,7 @@ typedef struct _hsi {
 } HSI;
 
 class ColorTranslator {
+public:
 	static HSI RGB2HSI(double r, double g, double b);
 	static RGB HSI2RGB(double h, double s, double i);
 

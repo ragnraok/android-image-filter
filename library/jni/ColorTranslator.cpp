@@ -10,7 +10,7 @@
 #include "ColorTranslator.h"
 #include "Util.h"
 
-HSI ColorTranslator::RGB2HSI(double r, double g, double b) {
+HSI ColorTranslator::RGB2HSI(double r, double g, double b) { // 0 ~ 255
 	r = r / COLOR_UPPER_BOUND;
 	g = g / COLOR_UPPER_BOUND;
 	b = b / COLOR_UPPER_BOUND;

@@ -21,7 +21,8 @@ LOCAL_SRC_FILES := cn_Ragnarok_NativeFilterFunc.cpp \
 					GammaCorrectionFilter.cpp \
 					MotionBlurFilter.cpp \
 					BrightContrastFilter.cpp \
-					ColorTranslator.cpp
+					ColorTranslator.cpp \
+					HueSaturationFilter.cpp
 
 LOCAL_LDLIBS := -lm -llog
 
