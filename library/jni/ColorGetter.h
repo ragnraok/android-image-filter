@@ -57,8 +57,9 @@ public:
 	}
 	double S() {
 		if (s == -1) {
-			int minColor = min(R, G);
-			minColor = min(minColor, B);
+			int minColor = 0;
+			minColor = R() < G() ? R() : G();
+			minColor = minColor < B() ? minColor : B();
 
 			double r = R() / COLOR_UPPER_BOUND;
 			double g = G() / COLOR_UPPER_BOUND;
