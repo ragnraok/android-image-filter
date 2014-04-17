@@ -66,7 +66,7 @@ public:
 			double b = B() / COLOR_UPPER_BOUND;
 			minColor = minColor / COLOR_UPPER_BOUND;
 
-			s = 1 - (3.0 * minColor) / (r + g + b) ;
+			s = 1 - (3.0 * minColor) / (r + g + b);
 		}
 		return s;
 	}

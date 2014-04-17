@@ -11,7 +11,7 @@
 #include "ImageFilter.h"
 
 
-class BrightContrastFilter : ImageFilter {
+class BrightContrastFilter : public ImageFilter {
 public:
 	BrightContrastFilter(int *pixels, int width, int height);
 	int* procImage();
