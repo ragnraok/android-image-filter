@@ -23,7 +23,7 @@ It is dead simple, you can see magic in the following code:
 
 and there are some options for the filter, you can go to see the demo to see how to use this options to customize your filter effect
 
-You can see all filters in file [BitmapFilter.java][3], currently contains totally 18 kinds of filters now, here is the list of filters and their options(show by code):
+You can see all filters in file [BitmapFilter.java][3], currently contains totally 19 kinds of filters now, here is the list of filters and their options(show by code):
 
 * Grayscale
 * Relief
@@ -98,6 +98,8 @@ You can see all filters in file [BitmapFilter.java][3], currently contains total
 	BitmapFilter.changeStyle(originBitmap, BitmapFilter.SOFT_GLOW_STYLE, xSpeed, ySpeed);
 	```
 	``xSpeed`` and ``ySpeed`` are both integer, indicate the speed in x-axis and y-axis, the origin in the left-upper side
+
+* Gotham
 
 PS: all options have defalut values, so you can just select the effect and pass nothing, like this:
 
