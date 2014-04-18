@@ -59,3 +59,29 @@ RGB ColorTranslator::HSI2RGB(double h, double s, double i) {
 	//LOGE("HSI2RGB, rgb is -1");
 	return RGB(-1, -1, -1);
 }
+
+bool ColorTranslator::checkRGB(double r, double g, double b) {
+	if (r > 255 || r < 0) {
+		return false;
+	}
+	if (g > 255 || g < 0) {
+		return false;
+	}
+	if (b > 255 || b < 0) {
+		return false;
+	}
+	return true;
+}
+
+bool ColorTranslator::checkRGB(RGB rgb) {
+	if (rgb.r > 255 || rgb.r < 0) {
+		return false;
+	}
+	if (rgb.g > 255 || rgb.g < 0) {
+		return false;
+	}
+	if (rgb.b > 255 || rgb.b < 0) {
+		return false;
+	}
+	return true;
+}

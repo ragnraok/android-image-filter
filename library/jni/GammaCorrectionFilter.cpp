@@ -25,7 +25,7 @@ GammaCorrectionFilter::GammaCorrectionFilter(int *pixels, int width, int height,
 GammaCorrectionFilter::GammaCorrectionFilter(int *pixels, int width, int height, double _gamma):
 	ImageFilter(pixels, width, height),
 	gamma(_gamma) { // normally gamma is 1/2.2=0.45
-
+	initGammaTable();
 }
 
 void GammaCorrectionFilter::initGammaTable() {

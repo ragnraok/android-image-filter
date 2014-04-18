@@ -11,7 +11,7 @@
 #include "ColorGetter.h"
 
 typedef struct _rgb { // 0 ~ 225
-	_rgb(int r, int g, int b) {
+	_rgb(int r = 0, int g = 0, int b = 0) {
 		this->r = r;
 		this->g = g;
 		this->b = b;
@@ -22,7 +22,7 @@ typedef struct _rgb { // 0 ~ 225
 } RGB;
 
 typedef struct _hsi {
-	_hsi(double h, double s, double i) {
+	_hsi(double h = 0, double s = 0, double i = 0) {
 		this->h = h;
 		this->s = s;
 		this->i = i;
@@ -36,6 +36,8 @@ class ColorTranslator {
 public:
 	static HSI RGB2HSI(double r, double g, double b);
 	static RGB HSI2RGB(double h, double s, double i);
+	static bool checkRGB(double r, double g, double b);
+	static bool checkRGB(RGB rgb);
 
 };
 

@@ -127,6 +127,14 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_blockFilter
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_motionBlurFilter
   (JNIEnv *, jclass, jintArray, jint, jint, jint, jint);
 
+/*
+ * Class:     cn_Ragnarok_NativeFilterFunc
+ * Method:    gothamFilter
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_gothamFilter
+  (JNIEnv *, jclass, jintArray, jint, jint);
+
 #ifdef __cplusplus
 }
 #endif

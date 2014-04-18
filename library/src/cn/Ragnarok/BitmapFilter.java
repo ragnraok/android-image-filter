@@ -1,5 +1,6 @@
 package cn.Ragnarok;
 
+import android.R.style;
 import android.graphics.Bitmap;
 
 public class BitmapFilter {
@@ -24,8 +25,9 @@ public class BitmapFilter {
 	public static final int SOFT_GLOW_STYLE = 16; // soft glow
 	public static final int SKETCH_STYLE = 17; // sketch style
 	public static final int MOTION_BLUR_STYLE = 18; // motion blur
+	public static final int GOTHAM_STYLE = 19; // gotham style
 	
-	public static final int TOTAL_FILTER_NUM = MOTION_BLUR_STYLE;
+	public static final int TOTAL_FILTER_NUM = GOTHAM_STYLE;
 	
 	/**
 	 * change bitmap filter style
@@ -114,6 +116,9 @@ public class BitmapFilter {
 				return MotionBlurFilter.changeToMotionBlur(bitmap, 5, 1);
 			}
 			return MotionBlurFilter.changeToMotionBlur(bitmap, (Integer)options[0], (Integer)options[1]);
+		}
+		else if (styleNo == GOTHAM_STYLE) {
+			return GothamFilter.changeToGotham(bitmap);
 		}
 		return bitmap;
 	}
