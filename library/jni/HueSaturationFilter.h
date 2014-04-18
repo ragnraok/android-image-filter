@@ -19,8 +19,8 @@ public:
 	int* setHue(double hue);
 	int* setSaturation(double saturation);
 private:
-//	HSI* originPixelsHSI;
-//	bool isInitOriginHSI;
+	HSI* pixelsHSI;
+	void initPixelsHSI();
 };
 
 
