@@ -26,7 +26,8 @@ GothamFilter::GothamFilter(int* pixels, int width, int height):
 }
 
 int* GothamFilter::procImage() {
-
+	BrightContrastFilter *brightContrastFilter = new BrightContrastFilter(pixels, width, height);
+	this->pixels = brightContrastFilter->setBrightness(-50);
 
 	HueSaturationFilter *hueSaturationFilter = new HueSaturationFilter(pixels, width, height);
 	this->pixels = hueSaturationFilter->setSaturation(saturationFactor);
@@ -35,7 +36,7 @@ int* GothamFilter::procImage() {
 	GammaCorrectionFilter *gammaCorrectionFilter = new GammaCorrectionFilter(pixels, width, height, gammaValue);
 	this->pixels = gammaCorrectionFilter->procImage();
 
-	BrightContrastFilter *brightContrastFilter = new BrightContrastFilter(pixels, width, height);
+
 	this->pixels = brightContrastFilter->setContrast(contrastValue);
 
 	delete gammaCorrectionFilter;
