@@ -24,6 +24,7 @@ private:
 	double gothamHue;
 	double saturationFactor;
 	double gammaValue;
+	double contrastValue;
 };
 
 
