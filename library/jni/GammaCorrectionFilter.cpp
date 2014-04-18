@@ -29,8 +29,9 @@ GammaCorrectionFilter::GammaCorrectionFilter(int *pixels, int width, int height,
 }
 
 void GammaCorrectionFilter::initGammaTable() {
+	double inverseGamma = 1.0 / gamma;
 	for (int i = 0; i < GAMMA_TABLE_SIZE; i++) {
-		gammaTable[i] = pow((double)(i / COLOR_UPPER_BOUND), gamma) * COLOR_UPPER_BOUND;
+		gammaTable[i] = pow((double)(i / COLOR_UPPER_BOUND), inverseGamma) * COLOR_UPPER_BOUND;
 	}
 }
 
