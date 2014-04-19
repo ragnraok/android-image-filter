@@ -26,16 +26,16 @@ GothamFilter::GothamFilter(int* pixels, int width, int height):
 }
 
 int* GothamFilter::procImage() {
-	BrightContrastFilter *brightContrastFilter = new BrightContrastFilter(pixels, width, height);
-	this->pixels = brightContrastFilter->setBrightness(-50);
 
-	HueSaturationFilter *hueSaturationFilter = new HueSaturationFilter(pixels, width, height);
-	this->pixels = hueSaturationFilter->setSaturation(saturationFactor);
-	this->pixels = hueSaturationFilter->setHue(gothamHue);
+	BrightContrastFilter *brightContrastFilter = new BrightContrastFilter(pixels, width, height);
+	this->pixels = brightContrastFilter->setBrightness(-60);
 
 	GammaCorrectionFilter *gammaCorrectionFilter = new GammaCorrectionFilter(pixels, width, height, gammaValue);
 	this->pixels = gammaCorrectionFilter->procImage();
 
+	HueSaturationFilter *hueSaturationFilter = new HueSaturationFilter(pixels, width, height);
+	this->pixels = hueSaturationFilter->setSaturation(saturationFactor);
+	this->pixels = hueSaturationFilter->setHue(gothamHue);
 
 	this->pixels = brightContrastFilter->setContrast(contrastValue);
 
