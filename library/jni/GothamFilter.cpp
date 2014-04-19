@@ -18,7 +18,7 @@ GothamFilter::GothamFilter(int* pixels, int width, int height):
 	HSI gothamHSI = ColorTranslator::RGB2HSI(GOTHAM_R, GOTHAM_G, GOTHAM_B);
 	gothamHue = 233.69;
 
-	LOGI("gothamHue = %f", gothamHue);
+//	LOGI("gothamHue = %f", gothamHue);
 
 	saturationFactor = 0.2;
 	gammaValue = 0.7;
@@ -27,21 +27,26 @@ GothamFilter::GothamFilter(int* pixels, int width, int height):
 
 int* GothamFilter::procImage() {
 
+	long startTime = getCurrentTime();
+
 	BrightContrastFilter *brightContrastFilter = new BrightContrastFilter(pixels, width, height);
-	this->pixels = brightContrastFilter->setBrightness(-60);
+	this->pixels = brightContrastFilter->setBrightness(-50);
 
 	GammaCorrectionFilter *gammaCorrectionFilter = new GammaCorrectionFilter(pixels, width, height, gammaValue);
 	this->pixels = gammaCorrectionFilter->procImage();
 
 	HueSaturationFilter *hueSaturationFilter = new HueSaturationFilter(pixels, width, height);
-	this->pixels = hueSaturationFilter->setSaturation(saturationFactor);
-	this->pixels = hueSaturationFilter->setHue(gothamHue);
+//	this->pixels = hueSaturationFilter->setHueSaturation(gothamHue, saturationFactor);
+	this->pixels = hueSaturationFilter->setHueSaturationIntesity(gothamHue, saturationFactor, 0.3);
 
 	this->pixels = brightContrastFilter->setContrast(contrastValue);
 
 	delete gammaCorrectionFilter;
 	delete brightContrastFilter;
 	delete hueSaturationFilter;
+
+	long endTime = getCurrentTime();
+	LOGI("GothamFilter use %ld ms", endTime - startTime);
 
 	return pixels;
 }

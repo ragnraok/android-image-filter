@@ -18,6 +18,8 @@ public:
 	int* procImage();
 	int* setHue(double hue);
 	int* setSaturation(double saturation);
+	int* setHueSaturation(double hue, double saturation);
+	int* setHueSaturationIntesity(double hue, double saturation, double intesity);
 private:
 	HSI* pixelsHSI;
 	void initPixelsHSI();

@@ -67,3 +67,53 @@ int* HueSaturationFilter::setSaturation(double saturation) {
 	}
 	return pixels;
 }
+
+int* HueSaturationFilter::setHueSaturation(double hue, double saturation) {
+	for (int i = 0; i < width * height; i++) {
+		HSI hsi = pixelsHSI[i];
+		double h = hsi.h;
+		h = hue;
+		if (h > 360) {
+			h = h - 360;
+		} else if (h < 0) {
+			h = h + 360;
+		}
+		double s = hsi.s;
+		s = saturation;
+		s = min(1.0, max(0.0, s));
+		pixelsHSI[i] = HSI(h, s, hsi.i);
+		RGB rgb = ColorTranslator::HSI2RGB(h, s, hsi.i);
+		if (ColorTranslator::checkRGB(rgb)) {
+			pixels[i] = RGB2Color(rgb.r, rgb.g, rgb.b);
+		}
+	}
+	return pixels;
+}
+
+int* HueSaturationFilter::setHueSaturationIntesity(double hue, double saturation, double intensity) {
+	for (int i = 0; i < width * height; i++) {
+		HSI hsi = pixelsHSI[i];
+		double h = hsi.h;
+		h = hue;
+		if (h > 360) {
+			h = h - 360;
+		} else if (h < 0) {
+			h = h + 360;
+		}
+
+		double s = hsi.s;
+		s = saturation;
+		s = min(1.0, max(0.0, s));
+
+		double newI = hsi.i;
+		newI = intensity;
+		newI = min(1.0, max(0.0, newI));
+
+		pixelsHSI[i] = HSI(h, s, newI);
+		RGB rgb = ColorTranslator::HSI2RGB(h, s, hsi.i);
+		if (ColorTranslator::checkRGB(rgb)) {
+			pixels[i] = RGB2Color(rgb.r, rgb.g, rgb.b);
+		}
+	}
+	return pixels;
+}

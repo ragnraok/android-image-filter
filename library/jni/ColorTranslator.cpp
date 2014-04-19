@@ -10,10 +10,10 @@
 #include "ColorTranslator.h"
 #include "Util.h"
 
-HSI ColorTranslator::RGB2HSI(double r, double g, double b) { // 0 ~ 255
-	r = r / COLOR_UPPER_BOUND;
-	g = g / COLOR_UPPER_BOUND;
-	b = b / COLOR_UPPER_BOUND;
+HSI ColorTranslator::RGB2HSI(double R, double G, double B) { // 0 ~ 255
+	double r = R / COLOR_UPPER_BOUND;
+	double g = G / COLOR_UPPER_BOUND;
+	double b = B / COLOR_UPPER_BOUND;
 
 	double theta = acos(
 			((r - g) + (r - b)) * 0.5
@@ -26,12 +26,12 @@ HSI ColorTranslator::RGB2HSI(double r, double g, double b) { // 0 ~ 255
 		h = 360 - theta;
 	}
 
+	double i = (r + g + b) / 3.0;
+
 	double minColor = 0;
 	minColor = r < g ? r : g;
 	minColor = minColor < b ? minColor : b;
-	double s = 1 - (3.0 * minColor) / (r + g + b);
-
-	double i = (r + g + b) / 3.0;
+	double s = 1 - i / (r + g + b);
 
 	return HSI(h, s, i);
 }
