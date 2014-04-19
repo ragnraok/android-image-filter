@@ -27,7 +27,7 @@ GothamFilter::GothamFilter(int* pixels, int width, int height):
 
 int* GothamFilter::procImage() {
 
-	long startTime = getCurrentTime();
+//	long startTime = getCurrentTime();
 
 	BrightContrastFilter *brightContrastFilter = new BrightContrastFilter(pixels, width, height);
 	this->pixels = brightContrastFilter->setBrightness(-50);
@@ -45,8 +45,8 @@ int* GothamFilter::procImage() {
 	delete brightContrastFilter;
 	delete hueSaturationFilter;
 
-	long endTime = getCurrentTime();
-	LOGI("GothamFilter use %ld ms", endTime - startTime);
+//	long endTime = getCurrentTime();
+//	LOGI("GothamFilter use %ld ms", endTime - startTime);
 
 	return pixels;
 }

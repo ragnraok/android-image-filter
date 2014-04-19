@@ -92,7 +92,12 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>include</name>
+			<name>gnu_stl_include</name>
+			<type>2</type>
+			<location>/Users/ragnarok/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include</location>
+		</link>
+		<link>
+			<name>ndk_include</name>
 			<type>2</type>
 			<location>/Users/ragnarok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include</location>
 		</link>
