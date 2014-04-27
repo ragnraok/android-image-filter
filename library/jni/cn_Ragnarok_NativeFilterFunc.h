@@ -37,7 +37,7 @@ JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_neonFilter
  * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_cn_Ragnarok_NativeFilterFunc_oilFilter
-  (JNIEnv *, jclass, jintArray, jint, jint);
+  (JNIEnv *, jclass, jintArray, jint, jint, jint);
 
 /*
  * Class:     cn_Ragnarok_NativeFilterFunc

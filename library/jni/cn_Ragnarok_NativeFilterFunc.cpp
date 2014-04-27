@@ -51,9 +51,11 @@ jintArray Java_cn_Ragnarok_NativeFilterFunc_neonFilter(JNIEnv* env,
 }
 
 jintArray Java_cn_Ragnarok_NativeFilterFunc_oilFilter(JNIEnv* env,
-		jclass object, jintArray pixels, jint width, jint height) {
+		jclass object, jintArray pixels, jint width, jint height, jint oilRange) {
 
-	jintArray result = PROC_IMAGE_WITHOUT_OPTIONS(env, pixels, width, height, OilFilter);
+	OilFilterOptions options(oilRange);
+
+	jintArray result = PROC_IMAGE_WITH_OPTIONS(env, pixels, width, height, OilFilter, options);
 	return result;
 }
 
