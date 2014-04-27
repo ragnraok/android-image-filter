@@ -311,7 +311,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 			changeBitmap = BitmapFilter.changeStyle(originBitmap, BitmapFilter.MOTION_BLUR_STYLE, 10, 1);
 			break;
 		case BitmapFilter.OIL_STYLE:
-			changeBitmap = BitmapFilter.changeStyle(originBitmap, BitmapFilter.OIL_STYLE, 10);
+			changeBitmap = BitmapFilter.changeStyle(originBitmap, BitmapFilter.OIL_STYLE, 5);
 			break;
 		default:
 			changeBitmap = BitmapFilter.changeStyle(originBitmap, styleNo);

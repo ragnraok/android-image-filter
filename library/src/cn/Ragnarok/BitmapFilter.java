@@ -48,7 +48,10 @@ public class BitmapFilter {
 			return BlurFilter.changeToAverageBlur(bitmap, (Integer)options[0]); // maskSize
 		}
 		else if (styleNo == OIL_STYLE) {
-			return OilFilter.changeToOil(bitmap);
+			if (options.length < 1) {
+				return OilFilter.changeToOil(bitmap, 5);
+			}
+			return OilFilter.changeToOil(bitmap, (Integer)options[0]);
 		}
 		else if (styleNo == NEON_STYLE) {
 			if (options.length < 3) {
