@@ -24,43 +24,17 @@ int* OilFilter::procImage() {
 	int *originPixels = new int[width * height];
 	memcpy(originPixels, pixels, width * height * sizeof(int));
 
-//	srand(time(NULL));
-//
-//	int i, j, originI, originJ;
-//	i = height - model - 1;
-//	j = width - model - 1;
-//	originI = i;
-//	originJ = j;
-//
-//	while (i > model) {
-//		j = originJ;
-//		while (j > model) {
-//			int pos = rand() % model;
-//			int otherPos = (i + pos) * width + j + pos;
-//			if (otherPos < width * height) {
-//				unsigned color = originPixels[otherPos];
-//				if (i * width + j < width * height)  {
-//					pixels[i * width + j] = color;
-//				}
-//
-//			}
-//			j--;
-//
-//		}
-//		i--;
-//	}
-
 	int rHis[OIL_FILTER_LEVEL], gHis[OIL_FILTER_LEVEL], bHis[OIL_FILTER_LEVEL];
-	int rTotal[OIL_FILTER_LEVEL], gTotal[OIL_FILTER_LEVEL], bTotal[OIL_FILTER_LEVEL];
+//	int rTotal[OIL_FILTER_LEVEL], gTotal[OIL_FILTER_LEVEL], bTotal[OIL_FILTER_LEVEL];
 
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {
 			memset(rHis, 0, OIL_FILTER_LEVEL * sizeof(int));
 			memset(gHis, 0, OIL_FILTER_LEVEL * sizeof(int));
 			memset(bHis, 0, OIL_FILTER_LEVEL * sizeof(int));
-			memset(rTotal, 0, OIL_FILTER_LEVEL * sizeof(int));
-			memset(gTotal, 0, OIL_FILTER_LEVEL * sizeof(int));
-			memset(bTotal, 0, OIL_FILTER_LEVEL * sizeof(int));
+//			memset(rTotal, 0, OIL_FILTER_LEVEL * sizeof(int));
+//			memset(gTotal, 0, OIL_FILTER_LEVEL * sizeof(int));
+//			memset(bTotal, 0, OIL_FILTER_LEVEL * sizeof(int));
 
 			int rowOffset, colOffset;
 			for (int row = -this->oilRange; row < this->oilRange; row++) {
@@ -74,9 +48,9 @@ int* OilFilter::procImage() {
 							int g = color.G();
 							int b = color.B();
 
-							rTotal[r] += r;
-							gTotal[g] += g;
-							bTotal[b] += b;
+//							rTotal[r] += r;
+//							gTotal[g] += g;
+//							bTotal[b] += b;
 
 							rHis[r]++;
 							gHis[g]++;
@@ -99,9 +73,12 @@ int* OilFilter::procImage() {
 				}
 			}
 			if (rHis[maxR] != 0 && gHis[maxG] != 0 && bHis[maxB] != 0) {
-				int finalR = rTotal[maxR] / rHis[maxR];
-				int finalG = gTotal[maxG] / gHis[maxG];
-				int finalB = bTotal[maxB] / bHis[maxB];
+//				int finalR = rTotal[maxR] / rHis[maxR];
+//				int finalG = gTotal[maxG] / gHis[maxG];
+//				int finalB = bTotal[maxB] / bHis[maxB];
+				int finalR = maxR;
+				int finalG = maxG;
+				int finalB = maxB;
 
 				finalR = min(255, max(0, finalR));
 				finalG = min(255, max(0, finalG));
