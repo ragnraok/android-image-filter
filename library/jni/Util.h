@@ -72,7 +72,7 @@ static inline double max(double a, double b) {
 }
 
 static inline jint* getPixleArray(JNIEnv* env, jintArray buff) {
-	jint* pixelsBuff = env->GetIntArrayElements(buff, (jboolean*)false);
+	jint* pixelsBuff = env->GetIntArrayElements(buff, 0);
 	if (pixelsBuff == NULL) {
 		LOGE("can't get pixels");
 	}
