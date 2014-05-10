@@ -268,6 +268,10 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 				public void run() {
 					// TODO Auto-generated method stub
 					super.run();
+					if (changeBitmap != null) {
+						changeBitmap.recycle();
+						changeBitmap = null;
+					}
 					applyStyle(pos + 1);
 					Message msg = Message.obtain();
 					msg.what = 1;
