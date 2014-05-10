@@ -50,10 +50,14 @@ int* NeonFilter::procImage() {
 			}
 			afterGray = abs(xVal) + abs(yVal);
 			afterGray = min(255, max(0, afterGray));
-			if (afterGray > threshold) {
-				pixels[i * width + j] = RGB2Color(neonR, neonG, neonB);
-			} else
-				pixels[i * width + j] = RGB2Color(1, 1, 1);
+			int pixel_index = i * width + j;
+			if (pixel_index < width * height) {
+				if (afterGray > threshold) {
+					pixels[i * width + j] = RGB2Color(neonR, neonG, neonB);
+				} else
+					pixels[i * width + j] = RGB2Color(1, 1, 1);
+			}
+
 		}
 	}
 

@@ -35,16 +35,18 @@ int* SharpenFilter::procImage() {
 			newR = newG = newB = 0;
 			for (int m = -halfMaskSize; m <= halfMaskSize; m++) {
 				for (int n = -halfMaskSize; n <= halfMaskSize; n++) {
+					int pixel_index = (i + n) * width + k + m;
+					if (pixel_index < width * height) {
+						Color pixColor(pixels[pixel_index]);
+						pixR = pixColor.R();
+						pixG = pixColor.G();
+						pixB = pixColor.B();
 
-					Color pixColor(pixels[(i + n) * width + k + m]);
-					pixR = pixColor.R();
-					pixG = pixColor.G();
-					pixB = pixColor.B();
-
-					newR += pixR * laplacian[index];
-					newG += pixG * laplacian[index];
-					newB += pixB * laplacian[index];
-					index++;
+						newR += pixR * laplacian[index];
+						newG += pixG * laplacian[index];
+						newB += pixB * laplacian[index];
+						index++;
+					}
 				}
 			}
 

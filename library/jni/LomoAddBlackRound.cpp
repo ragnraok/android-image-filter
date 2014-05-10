@@ -33,7 +33,7 @@ int* LomoAddBlackRound::procImage() {
 			double dis = sqrt(pow((centerX - x), 2) + pow(centerY - y, 2));
 			currentPos = y * width + x;
 
-			if (dis > roundRadius) {
+			if (dis > roundRadius && currentPos < width * height) {
 				Color color(pixels[currentPos]);
 				int pixR = color.R();
 				int pixG = color.G();

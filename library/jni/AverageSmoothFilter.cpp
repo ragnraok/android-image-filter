@@ -31,10 +31,13 @@ int* AverageSmoothFilter::procImage() {
 			sumR = sumG = sumB = 0;
 			for (int m = -halfMaskSize; m <= halfMaskSize; m++) {
 				for (int n = -halfMaskSize; n <= halfMaskSize; n++) {
-					Color color(pixels[(row + m) * width + col + n]);
-					sumR += color.R();
-					sumG += color.G();
-					sumB += color.B();
+					int index = (row + m) * width + col + n;
+					if (index < width * height) {
+						Color color(pixels[(row + m) * width + col + n]);
+						sumR += color.R();
+						sumG += color.G();
+						sumB += color.B();
+					}
 				}
 			}
 			pixels[row * width + col] = RGB2Color(sumR / div, sumG / div, sumB / div);

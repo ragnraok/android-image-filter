@@ -25,13 +25,17 @@ int* SketchFilter::procImage() {
 			Color centerColor(originPixels[i * width + j]);
 			int centerGray = centerColor.R();
 
-			Color rightBottomColor(originPixels[(i + 1) * width + j + 1]);
-			int rightBottomGray = rightBottomColor.R();
-			if (abs(centerGray - rightBottomGray) >= threshold) {
-				pixels[i * width + j] = RGB2Color(0, 0, 0); // black
-			} else {
-				pixels[i * width + j] = RGB2Color(255, 255, 255); // white
+			int rightBottomIndex = (i + 1) * width + j + 1;
+			if (rightBottomIndex < width * height) {
+				Color rightBottomColor(originPixels[rightBottomIndex]);
+				int rightBottomGray = rightBottomColor.R();
+				if (abs(centerGray - rightBottomGray) >= threshold) {
+					pixels[i * width + j] = RGB2Color(0, 0, 0); // black
+				} else {
+					pixels[i * width + j] = RGB2Color(255, 255, 255); // white
+				}
 			}
+
 		}
 	}
 

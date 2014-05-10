@@ -32,28 +32,30 @@ int* LightFilter::procImage() {
 	for (int i = 1; i < height - 1; i++) {
 		for (int k = 1; k < width - 1; k++) {
 			pos = i * width + k;
-			Color pixelColor = Color(pixels[pos]);
+			if (pos < width * height) {
+				Color pixelColor = Color(pixels[pos]);
 
-			pixR = pixelColor.R();
-			pixG = pixelColor.G();
-			pixB = pixelColor.B();
+				pixR = pixelColor.R();
+				pixG = pixelColor.G();
+				pixB = pixelColor.B();
 
-			newR = pixR;
-			newG = pixG;
-			newB = pixB;
+				newR = pixR;
+				newG = pixG;
+				newB = pixB;
 
-			int distance = (int) (pow((centerY - i), 2) + pow(centerX - k, 2));
-			if (distance < radius * radius) {
-				int result = (int) (strength * (1.0 - sqrt(distance) / radius));
-				newR = pixR + result;
-				newG = pixG + result;
-				newB = pixB + result;
+				int distance = (int) (pow((centerY - i), 2) + pow(centerX - k, 2));
+				if (distance < radius * radius) {
+					int result = (int) (strength * (1.0 - sqrt(distance) / radius));
+					newR = pixR + result;
+					newG = pixG + result;
+					newB = pixB + result;
+				}
+				newR = min(255, max(0, newR));
+				newG = min(255, max(0, newG));
+				newB = min(255, max(0, newB));
+
+				pixels[pos] = ARGB2Color(255, newR, newG, newB);
 			}
-			newR = min(255, max(0, newR));
-			newG = min(255, max(0, newG));
-			newB = min(255, max(0, newB));
-
-			pixels[pos] = ARGB2Color(255, newR, newG, newB);
 		}
 	}
 	return pixels;

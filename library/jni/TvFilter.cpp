@@ -19,8 +19,9 @@ int* TvFilter::procImage() {
 			r = g = b = 0;
 
 			for (int w = 0; w < 4; w++) {
-				if (y + w < height) {
-					Color color(pixels[(y + w) * width + x]);
+				int index = (y + w) * width + x;
+				if (index < width * height) {
+					Color color(pixels[index]);
 					r += color.R() / gap;
 					g += color.G() / gap;
 					b += color.B() / gap;
@@ -31,7 +32,8 @@ int* TvFilter::procImage() {
 			b = min(255, min(0, b));
 
 			for (int w = 0; w < gap; w++) {
-				if (y + w < height) {
+				int index = (y + w) * width + x;
+				if (index < width * height) {
 					if (w == 0) {
 						pixels[(y + w) * width + x] = RGB2Color(r, 0, 0);
 					}

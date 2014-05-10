@@ -66,11 +66,15 @@ int* GaussianBlurFilter::procImage() {
 			sumR = sumG = sumB = 0;
 			for (int i = -bound; i <= bound; i++) {
 				for (int j = -bound; j <= bound; j++) {
-					Color color(tempPixels[(row + i) * width + col + j]);
-					sumR += color.R() * kernel[index];
-					sumG += color.G() * kernel[index];
-					sumB += color.B() * kernel[index];
-					index++;
+					int pixel_index = (row + i) * width + col + j;
+					if (pixel_index < width * height) {
+						Color color(tempPixels[pixel_index]);
+						sumR += color.R() * kernel[index];
+						sumG += color.G() * kernel[index];
+						sumB += color.B() * kernel[index];
+						index++;
+					}
+
 				}
 			}
 

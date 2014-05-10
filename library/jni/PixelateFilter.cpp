@@ -33,10 +33,14 @@ Color PixelateFilter::getRectColor(int col, int row) {
 	int sum = 0;
 	for (int x = col; x < col + pixelSize; x++) {
 		for (int y = row; y < row + pixelSize; y++) {
-			Color pixColor(pixels[x + y * width]);
-			r += pixColor.R();
-			g += pixColor.G();
-			b += pixColor.B();
+			int index = x + y * width;
+			if (index < width * height) {
+				Color pixColor(pixels[x + y * width]);
+				r += pixColor.R();
+				g += pixColor.G();
+				b += pixColor.B();
+			}
+
 		}
 	}
 	sum = pixelSize * pixelSize;
@@ -46,7 +50,8 @@ Color PixelateFilter::getRectColor(int col, int row) {
 void PixelateFilter::fillRectColor(Color &color, int col, int row) {
 	for (int x = col; x < col + pixelSize; x++) {
 		for (int y = row; y < row + pixelSize; y++) {
-			if (x < width && y < height) {
+			int index = x + y * width;
+			if (x < width && y < height && index < width * height) {
 				pixels[x + y * width] = color.getColor();
 			}
 

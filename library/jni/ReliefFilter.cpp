@@ -30,7 +30,10 @@ int* ReliefFilter::procImage() {
 			g = min(255, max(g, 0));
 			b = min(255, max(b, 0));
 
-			pixels[j * width + i] = ARGB2Color(currentColor.alpha(), r, g, b);
+			int index = j * width + i;
+			if (index < width * height) {
+				pixels[index] = ARGB2Color(currentColor.alpha(), r, g, b);
+			}
 			preColor = currentColor;
 		}
 	}
