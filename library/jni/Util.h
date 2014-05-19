@@ -30,6 +30,7 @@
 	FilterClass filter(pixelsBuff, width, height, options); \
 	int *_result = filter.procImage(); \
 	result = jintPointerToJintArray(env, width * height, _result); \
+	releaseArray(env, pixels, pixelsBuff); \
 	result; \
 })\
 
@@ -38,6 +39,7 @@
 	FilterClass filter(pixelsBuff, width, height); \
 	int *_result = filter.procImage(); \
 	result = jintPointerToJintArray(env, width * height, _result); \
+	releaseArray(env, pixels, pixelsBuff); \
 	result; \
 })\
 

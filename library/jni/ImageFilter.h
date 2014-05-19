@@ -23,8 +23,8 @@ public:
 		this->pixels = _pixels; // avoid alloc redundant pixels buffer
 	};
 	virtual ~ImageFilter() {
-		if (pixels != NULL)
-			delete [] pixels;
+//		if (pixels != NULL)
+//			delete [] pixels;
 		pixels = NULL;
 	};
 	void setPixels(int *_pixels, int width, int height) {
