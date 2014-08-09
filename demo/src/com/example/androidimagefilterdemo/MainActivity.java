@@ -1,8 +1,9 @@
-package com.example.androidimagefilterdemo;
+	package com.example.androidimagefilterdemo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import android.app.ActionBar;
@@ -209,12 +210,10 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if (v.getId() == R.id.button) {
-			Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-			intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI,
-					"image/*");
+			Intent intent = new Intent(Intent.ACTION_PICK);
 			intent.setType("image/*");
-			intent.putExtra("output", Uri.fromFile(tempFile));
-			intent.putExtra("crop", "true");
+//			intent.putExtra("output", Uri.fromFile(tempFile));
+//			intent.putExtra("crop", "true");
 //			intent.putExtra("aspectX", 1);
 //			intent.putExtra("aspectY", 1);
 //			intent.putExtra("outputX", PHOTO_SIZE_WIDTH);
@@ -233,7 +232,15 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
-			originBitmap = BitmapFactory.decodeFile(tempFile.getAbsolutePath());
+			Uri selectedImage = data.getData();
+			InputStream imageStream;
+			try {
+				imageStream = getContentResolver().openInputStream(selectedImage);
+				originBitmap = BitmapFactory.decodeStream(imageStream);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if (originBitmap != null) {
 				tempFile.delete();
 				this.imageView.setImageBitmap(originBitmap);
