@@ -212,12 +212,6 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 		if (v.getId() == R.id.button) {
 			Intent intent = new Intent(Intent.ACTION_PICK);
 			intent.setType("image/*");
-//			intent.putExtra("output", Uri.fromFile(tempFile));
-//			intent.putExtra("crop", "true");
-//			intent.putExtra("aspectX", 1);
-//			intent.putExtra("aspectY", 1);
-//			intent.putExtra("outputX", PHOTO_SIZE_WIDTH);
-//			intent.putExtra("outputY", PHOTO_SIZE_HEIGHT);
 			startActivityForResult(intent, 1);
 		}
 		else if (v.getId() == R.id.button_restore) {
