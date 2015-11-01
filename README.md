@@ -5,6 +5,9 @@ some android image filters
 
 in some filter, I use NDK to implement to make it more efficient
 
+###Note:
+This branch use [Gradle Experimental Plugin](http://tools.android.com/tech-docs/new-build-system/gradle-experimental), before Google release the Gradle android NDK Plugin, DO NOT use it in production environment
+
 # Setup
 
 - Install Android NDK and properly configure it: [http://goo.gl/koTCb](http://goo.gl/koTCb)
