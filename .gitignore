@@ -9,3 +9,5 @@ demo/gen
 demoKey
 AndroidImageFilterDemo.apk
 local.properties
+.gradle/
+.idea/
