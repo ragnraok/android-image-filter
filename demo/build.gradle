@@ -1,0 +1,23 @@
+apply plugin: 'com.android.model.application'
+
+model {
+    android {
+        compileSdkVersion = 22
+        buildToolsVersion = "22.0.1"
+
+        defaultConfig.with {
+            applicationId = "com.example.androidimagefilterdemo"
+            minSdkVersion.apiLevel = 15
+            targetSdkVersion.apiLevel = 22
+        }
+    }
+
+
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':library')
+}
+
+
+

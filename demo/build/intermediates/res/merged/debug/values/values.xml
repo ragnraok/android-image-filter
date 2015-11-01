@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/ragnarok/Works/Project/android-image-filter/demo/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="shadow_width">15dp</dimen>
+    <dimen name="slidingmenu_offset">130dp</dimen>
+    <integer name="num_cols">1</integer>
+    <!-- From: file:/Users/ragnarok/Works/Project/android-image-filter/demo/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">AndroidImageFilter</string>
+    <string name="drawer_close">Close</string>
+    <string name="drawer_open">Open</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="restore">Restore</string>
+    <string name="select_image">Select an image</string>
+    <string name="wait">Please Wait...</string>
+    <!-- From: file:/Users/ragnarok/Works/Project/android-image-filter/demo/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>
