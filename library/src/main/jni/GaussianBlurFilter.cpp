@@ -63,6 +63,7 @@ int* GaussianBlurFilter::procImage() {
 	for (int row = bound; row < height - bound; row++) {
 		for (int col = bound; col < width - bound; col++) {
 			index = 0;
+			Color pixColor(tempPixels[row * width + col]);
 			sumR = sumG = sumB = 0;
 			for (int i = -bound; i <= bound; i++) {
 				for (int j = -bound; j <= bound; j++) {
@@ -78,7 +79,7 @@ int* GaussianBlurFilter::procImage() {
 				}
 			}
 
-			pixels[row * width + col] = RGB2Color(int(sumR), int(sumG), int(sumB));
+			pixels[row * width + col] = ARGB2Color(pixColor.alpha(), int(sumR), int(sumG), int(sumB));
 		}
 	}
 
