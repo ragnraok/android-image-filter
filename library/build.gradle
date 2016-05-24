@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+
+import org.apache.tools.ant.taskdefs.condition.Os
+
+android {
+    buildToolsVersion "22.0.1"
+    compileSdkVersion "android-22"
+    sourceSets {
+        main {
+            java.srcDirs 'src'
+
+            res {
+                srcDirs 'res'
+            }
+            manifest.srcFile 'AndroidManifest.xml'
+
+            jni.srcDirs = []
+            jniLibs.srcDir 'libs'
+        }
+    }
+
+    task ndkBuild(type:Exec) {
+        workingDir file('./')
+        commandLine getNdkBuildCmd()
+    }
+
+    tasks.withType(JavaCompile) {
+        compileTask -> compileTask.dependsOn ndkBuild
+    }
+
+    task cleanJni(type:Exec) {
+        workingDir file('./')
+        commandLine getNdkBuildCmd(), 'clean'
+    }
+
+    clean.dependsOn cleanJni
+
+}
+
+def getNdkPath() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def ndkdir = properties.getProperty('ndk.dir', null)
+    if (ndkdir == null)
+        throw new GradleException('NDK location not found. Define location with ndk.dir in the local.properties file.')
+
+    return ndkdir
+}
+
+def getNdkBuildCmd() {
+
+    def ndkbuild = getNdkPath() + "/ndk-build"
+
+    return ndkbuild
+}
