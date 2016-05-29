@@ -7,13 +7,10 @@ in some filter, I use NDK to implement to make it more efficient
 
 # Setup
 
-**TODO: need update**
-
 - Install Android NDK and properly configure it: [http://goo.gl/koTCb](http://goo.gl/koTCb)
-- Get a clean clone of this project, import the library in Eclipse
-- right click the Project in Eclipse, and select properties->C/C++ Build, set the "Build Command" for the path of your "ndk-build" program
+- Get a clean clone of this project, import the library in Android Studio
 - then Clean and Build the hold project to regenerate the library
-- Then just add AndroidImageFilter as a dependency to your existing project.
+- Then just add library module as a dependency to your existing project.
 
 # How to Use it
 It is dead simple, you can see magic in the following code:
