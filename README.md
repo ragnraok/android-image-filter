@@ -107,16 +107,13 @@ BitmapFilter.changeStyle(originBitmap, BitmapFilter.MOTION_BLUR_STYLE);
 ```
 
 
-Also, you can download the demo app from this [link][1]
-
-
 If you have any question, please open an [issue][4] and show your code and the program ouput, thanks!
 
  ![][2]
  
 # The MIT License (MIT)
 
-Copyright (c) \<2012-2014\>  \<ragnarok okone1288@gmail.com\>
+Copyright (c) \<2012-2016\>  \<ragnarok okone1288@gmail.com\>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
